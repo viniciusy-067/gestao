@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manual do Sistema de Chat | ERP</title>
+
+  <link rel="stylesheet" href="./styles/output.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+  </style>
+</head>
+
+<body class="bg-slate-50 text-slate-900">
+
+  <nav class="px-8 py-8 bg-white shadow-sm">
+    <a href="index.html" class="text-2xl font-bold text-blue-600">
+      ERP Gestão de Resultados
+    </a>
+  </nav>
+
+  <main class="max-w-4xl mx-auto px-8 py-12 space-y-8">
+
+    <header>
+      <h1 class="text-4xl font-extrabold mb-3">
+        Manual do Sistema de Chat
+      </h1>
+      <p class="text-slate-600">
+        Documentação oficial de operação do sistema ERP Gestão de Resultados.
+        Aqui encontram-se as diretrizes técnicas para configuração, manutenção
+        e uso das ferramentas integradas.
+      </p>
+    </header>
+
+    <!-- MÓDULO 01 -->
+    <section class="border-auto border-slate-200 rounded-x1 bg-white">
+      <button
+        type="button"
+        class="w-full px-6 py-4 font-semibold flex justify-between items-center"
+        onclick="toggleModule('mod1')"
+      >
+        <span>Módulo 01 · Filas & Chatbot</span>
+        <span id="icon-mod1">+</span>
+      </button>
+
+      <div id="mod1" class="hidden px-6 pb-6 text-slate-700">
+        <h2 class="text-xl font-bold">Visão Geral</h2>
+        <hr class="border-t border-slate-200 my-4">
+
+        <p>
+          O módulo de Filas & Chatbot é a base para organizar toda a estrutura
+          de atendimento. Uma fila representa um setor ou equipe responsável
+          por receber os contatos dos clientes.
+        </p>
+
+        <p>
+          Aqui também é possível configurar mensagens automáticas iniciais,
+          como a mensagem de saudação exibida ao iniciar uma conversa.
+        </p>
+        <br>
+        <hr class="border-t border-slate-200 my-4">
+
+        <img
+          src="imagens/chatfila.PNG"
+          alt="Tela do módulo Filas & Chatbot"
+          class="w-full rounded-lg border"
+        />
+        <hr class="border-t border-slate-200 my-4">
+
+        <h4 class="font-semibold">Acesso e Permissões - </h4>
+        <br>
+        <p>
+          O acesso é feito pelo menu lateral, na seção Administração →
+          Filas & Chatbot.
+        </p>
+        <br>
+        <hr class="border-t border-slate-200 my-4">
+        <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg">
+          <h4 class="font-bold text-slate-900 mb-1">Importante</h4>
+          <p class="text-sm text-slate-800">
+            A criação e o gerenciamento de filas e chatbots são restritos a
+            usuários com perfil de Administrador.
+          </p>
+        </div>
+        <hr class="border-t border-slate-200 my-4">
+        <h4 class="font-bold text-slate-800 mb-1">Interface De Tela de Filas & ChatBot</h4>
+<p class="text-sm text-slate-800 mb-4">
+    Ao acessar a tela, você encontrará os seguintes elementos:
+</p>
+
+<ul class="list-disc list-outside space-y-4 text-slate-800 ml-5">
+    <li>
+        <strong>Listas de Filas:</strong> A área principal exibe uma lista com todas as filas que já foram criadas. Para cada fila, as seguintes informações são apresentadas:
+        
+        <ul class="list-disc list-outside ml-6 mt-8 space-y-0.5 text-slate-700 font-normal">
+            <li><strong>Nome -</strong> O nome que identifica a fila/departamento (ex: "Suporte").</li>
+            <li><strong>Cor -</strong> Uma cor associada à fila, usada para facilitar a identificação visual em outras áreas do sistema.</li>
+            <li><strong>Mensagem de saudação -</strong> A primeira mensagem automática que o cliente receberá ao ser direcionado para esta fila.</li>
+            <li><strong>Ações -</strong> Botões para gerenciar a fila, permitindo Editar suas configurações ou Excluir.</li>
+        </ul>
+    <li><strong>Botão : </strong>Localizado no canto superior direito, este é o botão principal da tela. 
+         Ao clicar nele, você abrirá o formulário para cadastrar uma nova fila, onde definirá seu nome, cor, mensagem de saudação 
+         e outras configurações específicas.</li>
+
+    </li>
+</ul>
+<hr class="border-t border-slate-200 my-4">
+        <h5 class="font-bold text-slate-800 ml-1">Adicionando uma nova fila</h5>
+<p class="text-sm text-slate-800 mb-4">
+            Ao clicar no botão "ADICIONAR FILA" na tela principal do módulo, uma janela de configuração se abrirá. 
+            É aqui que você definirá todos os parâmetros para o funcionamento do seu novo departamento ou equipe de atendimento.
+        </p>
+            
+      </div>
+    </section>
+
+    <!-- MÓDULO 02 -->
+    <section class="border border-slate-200 rounded-xl bg-white">
+      <button
+        type="button"
+        class="w-full px-6 py-4 font-semibold flex justify-between items-center"
+        onclick="toggleModule('mod2')"
+      >
+        <span>Módulo 02 · Conexões</span>
+        <span id="icon-mod2">+</span>
+      </button>
+
+      <div id="mod2" class="hidden px-6 pb-6 text-slate-700">
+        <ul class="list-disc pl-6 space-y-1">
+          <li>Criação e gerenciamento de conexões</li>
+          <li>Vinculação com filas</li>
+          <li>WhatsApp, Instagram e outros canais</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- MÓDULOS RESTANTES -->
+    <section class="border border-slate-200 rounded-xl bg-white">
+      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
+              onclick="toggleModule('mod3')">
+        <span>Módulo 03 · Atendimento</span>
+        <span id="icon-mod3">+</span>
+      </button>
+      <div id="mod3" class="hidden px-6 pb-6 text-slate-700">
+        Operação de tickets, interação com clientes e encerramentos.
+      </div>
+    </section>
+
+    <section class="border border-slate-200 rounded-xl bg-white">
+      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
+              onclick="toggleModule('mod4')">
+        <span>Módulo 04 · Respostas Rápidas</span>
+        <span id="icon-mod4">+</span>
+      </button>
+      <div id="mod4" class="hidden px-6 pb-6 text-slate-700">
+        Mensagens padronizadas acionadas por atalhos.
+      </div>
+    </section>
+
+    <section class="border border-slate-200 rounded-xl bg-white">
+      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
+              onclick="toggleModule('mod5')">
+        <span>Módulo 05 · Configurações Gerais</span>
+        <span id="icon-mod5">+</span>
+      </button>
+      <div id="mod5" class="hidden px-6 pb-6 text-slate-700">
+        Configurações globais, permissões e integrações.
+      </div>
+    </section>
+
+  </main>
+
+  <script>
+    function toggleModule(id) {
+      const content = document.getElementById(id);
+      const icon = document.getElementById(`icon-${id}`);
+      const isOpen = !content.classList.contains('hidden');
+
+      content.classList.toggle('hidden');
+      icon.textContent = isOpen ? '+' : '−';
+    }
+  </script>
+
+</body>
+</html>
