@@ -4,36 +4,57 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>ERP Gestão de Resultados | Inteligência em Dados</title>
- <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <style>body { font-family: 'Inter', sans-serif; }</style>
 </head>
+
 <body class="bg-slate-50 text-slate-900">
 
   <nav class="relative flex items-center justify-between px-8 py-6 bg-white shadow-sm z-50">
-    <div id="menu" class="hidden absolute top-full left-0 w-full bg-white flex-col p-8 space-y-4 divide-y divide-slate-100 shadow-lg md:static md:flex md:flex-row md:w-auto md:p-0 md:space-y-0 md:space-x-8 md:divide-y-0 md:shadow-none font-medium">
-  <a href="manual-chat.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Manual</a>
-  <a href="planos.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Planos</a>
-  <a href="sobre.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Sobre</a>
-  
-  <div class="pt-6 md:pt-0">
-    <button class="w-full md:w-auto bg-blue-600 text-white px-6 py-3 md:py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-      Login
+    <div class="text-2xl font-bold text-blue-600">
+      ERP Gestão de Resultados
+    </div>
+
+    <div 
+      id="menu" 
+      class="hidden absolute top-full left-0 w-full bg-white flex-col p-8 space-y-2 divide-y divide-slate-100 shadow-lg md:static md:flex md:flex-row md:w-auto md:p-0 md:space-y-0 md:space-x-8 md:divide-y-0 md:shadow-none font-medium"
+    >
+      <a href="manual-chat.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Manual</a>
+      <a href="planos.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Planos</a>
+      <a href="sobre.html" class="block py-4 md:py-0 hover:text-blue-600 transition">Sobre</a>
+      
+      <div class="pt-4 md:pt-0">
+        <button class="w-full md:w-auto bg-blue-600 text-white px-6 py-3 md:py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+          Login
+        </button>
+      </div>
+    </div>
+
+    <button id="menuBtn" class="md:hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold">
+      ☰
     </button>
-  </div>
-</div>
   </nav>
 
   <header class="max-w-7xl mx-auto px-8 py-20 flex flex-col md:flex-row items-center gap-12">
     <div class="md:w-1/2">
-      <h1 class="text-5xl font-extrabold leading-tight mb-6">Transforme dados em <span class="text-blue-600">decisões inteligentes.</span></h1>
-      <p class="text-lg text-slate-600 mb-8">O ERP completo para gestão de resultados. Organize seu atendimento e escale sua empresa.</p>
+      <h1 class="text-5xl font-extrabold leading-tight mb-6">
+        Transforme dados em <span class="text-blue-600">decisões inteligentes.</span>
+      </h1>
+      <p class="text-lg text-slate-600 mb-8">
+        O ERP completo para gestão de resultados. Organize seu atendimento e escale sua empresa com tecnologia de ponta.
+      </p>
       <div class="flex gap-4">
-        <a href="planos.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition">Começar agora</a>
+        <a href="planos.html" class="bg-blue-600 text-white px-8 py-3 rounded-xl font-bold shadow-lg shadow-blue-200 hover:bg-blue-700 transition">
+          Começar agora
+        </a>
       </div>
     </div>
+
     <div class="md:w-1/2 w-full">
-      <div class="bg-white p-6 rounded-2xl shadow-2xl border border-slate-100"><img src="imagens/logogestao.png" alt="Dashboard" class="w-full h-auto rounded-lg" /></div>
+      <div class="bg-white p-6 rounded-2xl shadow-2xl border border-slate-100 transform hover:scale-[1.02] transition duration-500">
+        <img src="imagens/logogestao.png" alt="Dashboard" class="w-full h-auto rounded-lg" />
+      </div>
     </div>
   </header>
 
@@ -41,9 +62,13 @@
     <div class="max-w-7xl mx-auto px-8 grid md:grid-cols-2 gap-12 items-center">
       <div>
         <h2 class="text-3xl font-bold mb-4 italic text-blue-400">"Tecnologia que impulsiona o crescimento."</h2>
-        <p class="text-slate-400">Copyright © 2026 - ERPCON Consultoria - Todos os Direitos Reservados.</p>
+        <p class="text-slate-400 text-sm">Copyright © 2026 - ERPCON Consultoria - Todos os Direitos Reservados.</p>
       </div>
-      <div class="flex md:justify-end"><a href="https://api.whatsapp.com/send?phone=556793002442" class="bg-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">Solicitar Proposta</a></div>
+      <div class="flex md:justify-end">
+        <a href="https://api.whatsapp.com/send?phone=556793002442" class="bg-blue-600 px-8 py-3 rounded-xl font-bold hover:bg-blue-700 transition">
+          Solicitar Proposta
+        </a>
+      </div>
     </div>
   </footer>
 
@@ -54,7 +79,13 @@
   <script>
     const menuBtn = document.getElementById('menuBtn');
     const menu = document.getElementById('menu');
-    menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+
+    menuBtn.addEventListener('click', () => {
+      // Toggle alternando as duas classes para garantir comportamento correto
+      menu.classList.toggle('hidden');
+      menu.classList.toggle('flex');
+    });
   </script>
+
 </body>
 </html>
