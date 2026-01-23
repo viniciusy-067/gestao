@@ -20,16 +20,19 @@
       ERP Gestão de Resultados
     </div>
 
-    <div class="flex space-x-8 font-medium">
-      <a href="manual-chat.html" class="hover:text-blue-600 transition">
-        Manual Sistema Chat
-      </a>
+    <!-- Menu -->
+    <div class="hidden flex-col md:flex md:flex-row md:space-x-8 font-medium gap-2" id="menu">
+      <a href="manual-chat.html" class="hover:text-blue-600 transition">Manual Sistema Chat</a>
       <a href="#" class="hover:text-blue-600 transition">Planos</a>
       <a href="#" class="hover:text-blue-600 transition">Sobre</a>
+      <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+        Login
+      </button>
     </div>
 
-    <button class="bg-blue-600 text-white px-6 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
-      Login
+    <!-- Botão mobile -->
+    <button id="menuBtn" class="md:hidden bg-blue-600 text-white px-4 py-2 rounded-lg font-semibold hover:bg-blue-700 transition">
+      ☰
     </button>
   </nav>
 
@@ -55,6 +58,16 @@
       </div>
     </div>
   </header>
+
+  <script>
+    // Toggle menu mobile
+    const menuBtn = document.getElementById('menuBtn');
+    const menu = document.getElementById('menu');
+
+    menuBtn.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  </script>
 
 </body>
 </html>
