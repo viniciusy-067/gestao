@@ -1,187 +1,163 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Manual do Sistema de Chat | ERP</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manual Técnico | ERP Gestão de Resultados</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-
-  <style>
-    body { font-family: 'Inter', sans-serif; }
-  </style>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .content-section img { margin-top: 1.5rem; margin-bottom: 1.5rem; transition: transform 0.3s ease; }
+        .content-section img:hover { transform: scale(1.01); }
+    </style>
 </head>
 
-<body class="bg-slate-50 text-slate-900">
+<body class="bg-slate-50 text-slate-800 antialiased">
 
-  <nav class="px-8 py-8 bg-white shadow-sm">
-    <a href="index.html" class="text-2xl font-bold text-blue-600">
-      ERP Gestão de Resultados
-    </a>
-  </nav>
+    <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between h-20 items-center">
+                <a href="index.html" class="flex items-center gap-2 group">
+                    <span class="text-2xl font-black text-blue-600 tracking-tighter">ERP</span>
+                    <span class="text-lg font-bold text-slate-700">Gestão de Resultados</span>
+                </a>
+                <a href="index.html" class="text-sm font-semibold text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition">
+                    ← Voltar ao Início
+                </a>
+            </div>
+        </div>
+    </nav>
 
-  <main class="max-w-4xl mx-auto px-8 py-12 space-y-8">
-
-    <header>
-      <h1 class="text-4xl font-extrabold mb-3">
-        Manual do Sistema de Chat
-      </h1>
-      <p class="text-slate-600">
-        Documentação oficial de operação do sistema ERP Gestão de Resultados.
-        Aqui encontram-se as diretrizes técnicas para configuração, manutenção
-        e uso das ferramentas integradas.
-      </p>
+    <header class="bg-gradient-to-b from-white to-slate-50 border-b border-slate-200">
+        <div class="max-w-4xl mx-auto px-6 py-20 text-center md:text-left">
+            <span class="px-4 py-1.5 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">Documentação de Suporte</span>
+            <h1 class="mt-6 text-4xl font-extrabold text-slate-900 tracking-tight sm:text-6xl">Manual do Sistema de Chat</h1>
+            <p class="mt-6 text-xl text-slate-600 leading-relaxed max-w-3xl">
+                Guia técnico especializado para configuração de fluxos, automação de processos e gestão de resultados operacionais.
+            </p>
+        </div>
     </header>
 
-    <!-- MÓDULO 01 -->
-    <section class="border-auto border-slate-200 rounded-x1 bg-white">
-      <button
-        type="button"
-        class="w-full px-6 py-4 font-semibold flex justify-between items-center"
-        onclick="toggleModule('mod1')"
-      >
-        <span>Módulo 01 · Filas & Chatbot</span>
-        <span id="icon-mod1">+</span>
-      </button>
-
-      <div id="mod1" class="hidden px-6 pb-6 text-slate-700">
-        <h2 class="text-xl font-bold">Visão Geral</h2>
-        <hr class="border-t border-slate-200 my-4">
-
-        <p>
-          O módulo de Filas & Chatbot é a base para organizar toda a estrutura
-          de atendimento. Uma fila representa um setor ou equipe responsável
-          por receber os contatos dos clientes.
-        </p>
-
-        <p>
-          Aqui também é possível configurar mensagens automáticas iniciais,
-          como a mensagem de saudação exibida ao iniciar uma conversa.
-        </p>
-        <br>
-        <hr class="border-t border-slate-200 my-4">
-
-        <img
-          src="imagens/chatfila.PNG"
-          alt="Tela do módulo Filas & Chatbot"
-          class="w-full rounded-lg border"
-        />
-        <hr class="border-t border-slate-200 my-4">
-
-        <h4 class="font-semibold">Acesso e Permissões - </h4>
-        <br>
-        <p>
-          O acesso é feito pelo menu lateral, na seção Administração →
-          Filas & Chatbot.
-        </p>
-        <br>
-        <hr class="border-t border-slate-200 my-4">
-        <div class="border-l-4 border-blue-500 bg-blue-50 p-4 rounded-r-lg">
-          <h4 class="font-bold text-slate-900 mb-1">Importante</h4>
-          <p class="text-sm text-slate-800">
-            A criação e o gerenciamento de filas e chatbots são restritos a
-            usuários com perfil de Administrador.
-          </p>
-        </div>
-        <hr class="border-t border-slate-200 my-4">
-        <h4 class="font-bold text-slate-800 mb-1">Interface De Tela de Filas & ChatBot</h4>
-<p class="text-sm text-slate-800 mb-4">
-    Ao acessar a tela, você encontrará os seguintes elementos:
-</p>
-
-<ul class="list-disc list-outside space-y-4 text-slate-800 ml-5">
-    <li>
-        <strong>Listas de Filas:</strong> A área principal exibe uma lista com todas as filas que já foram criadas. Para cada fila, as seguintes informações são apresentadas:
-        
-        <ul class="list-disc list-outside ml-6 mt-8 space-y-0.5 text-slate-700 font-normal">
-            <li><strong>Nome -</strong> O nome que identifica a fila/departamento (ex: "Suporte").</li>
-            <li><strong>Cor -</strong> Uma cor associada à fila, usada para facilitar a identificação visual em outras áreas do sistema.</li>
-            <li><strong>Mensagem de saudação -</strong> A primeira mensagem automática que o cliente receberá ao ser direcionado para esta fila.</li>
-            <li><strong>Ações -</strong> Botões para gerenciar a fila, permitindo Editar suas configurações ou Excluir.</li>
-        </ul>
-    <li><strong>Botão : </strong>Localizado no canto superior direito, este é o botão principal da tela. 
-         Ao clicar nele, você abrirá o formulário para cadastrar uma nova fila, onde definirá seu nome, cor, mensagem de saudação 
-         e outras configurações específicas.</li>
-
-    </li>
-</ul>
-<hr class="border-t border-slate-200 my-4">
-        <h5 class="font-bold text-slate-800 ml-1">Adicionando uma nova fila</h5>
-<p class="text-sm text-slate-800 mb-4">
-            Ao clicar no botão "ADICIONAR FILA" na tela principal do módulo, uma janela de configuração se abrirá. 
-            É aqui que você definirá todos os parâmetros para o funcionamento do seu novo departamento ou equipe de atendimento.
-        </p>
+    <main class="max-w-4xl mx-auto px-6 py-16">
+        <div class="space-y-8">
             
-      </div>
-    </section>
+            <section class="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden">
+                <button onclick="toggleModule('mod1')" class="w-full px-8 py-6 flex items-center justify-between hover:bg-slate-50 transition text-left">
+                    <div class="flex items-center gap-5">
+                        <span class="flex-shrink-0 w-12 h-12 flex items-center justify-center rounded-2xl bg-blue-600 text-white font-black shadow-lg shadow-blue-200">01</span>
+                        <div>
+                            <h3 class="font-extrabold text-slate-900 text-xl tracking-tight">Módulo 01 · Filas & Chatbot</h3>
+                            <p class="text-sm text-slate-500 font-medium italic">Configuração de arquitetura de atendimento.</p>
+                        </div>
+                    </div>
+                    <span id="icon-mod1" class="text-blue-600 font-light text-4xl transition-transform duration-300">+</span>
+                </button>
 
-    <!-- MÓDULO 02 -->
-    <section class="border border-slate-200 rounded-xl bg-white">
-      <button
-        type="button"
-        class="w-full px-6 py-4 font-semibold flex justify-between items-center"
-        onclick="toggleModule('mod2')"
-      >
-        <span>Módulo 02 · Conexões</span>
-        <span id="icon-mod2">+</span>
-      </button>
+                <div id="mod1" class="hidden px-8 pb-12 border-t border-slate-100 pt-8 content-section">
+                    <div class="prose prose-slate max-w-none">
+                        <h4 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Visão Geral do Módulo</h4>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            O módulo de <strong>Filas & Chatbot</strong> é o pilar estrutural do seu atendimento. Ele permite organizar a entrada de leads por departamentos (ex: Comercial, Suporte) e definir a primeira camada de interação automática do cliente.
+                        </p>
 
-      <div id="mod2" class="hidden px-6 pb-6 text-slate-700">
-        <ul class="list-disc pl-6 space-y-1">
-          <li>Criação e gerenciamento de conexões</li>
-          <li>Vinculação com filas</li>
-          <li>WhatsApp, Instagram e outros canais</li>
-        </ul>
-      </div>
-    </section>
+                        <img src="imagens/chatfila.PNG" alt="Interface de Gerenciamento de Filas" class="w-full rounded-2xl border border-slate-200 shadow-xl" />
 
-    <!-- MÓDULOS RESTANTES -->
-    <section class="border border-slate-200 rounded-xl bg-white">
-      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
-              onclick="toggleModule('mod3')">
-        <span>Módulo 03 · Atendimento</span>
-        <span id="icon-mod3">+</span>
-      </button>
-      <div id="mod3" class="hidden px-6 pb-6 text-slate-700">
-        Operação de tickets, interação com clientes e encerramentos.
-      </div>
-    </section>
+                        <div class="grid md:grid-cols-2 gap-6 my-10">
+                            <div class="bg-blue-50 border-l-4 border-blue-600 p-6 rounded-xl">
+                                <h5 class="font-bold text-blue-900 flex items-center gap-2">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clip-rule="evenodd"></path></svg>
+                                    Nível de Acesso
+                                </h5>
+                                <p class="mt-2 text-sm text-blue-800 leading-relaxed">
+                                    A criação e edição de fluxos são restritas exclusivamente ao perfil de <strong>Administrador</strong>, garantindo a integridade dos processos corporativos.
+                                </p>
+                            </div>
+                            <div class="bg-slate-50 border-l-4 border-slate-400 p-6 rounded-xl">
+                                <h5 class="font-bold text-slate-900">Elementos de Tela</h5>
+                                <p class="mt-2 text-sm text-slate-700 leading-relaxed">
+                                    Identifique filas por <strong>Cores</strong>, <strong>Nomes</strong> e <strong>Mensagens de Saudação</strong> personalizadas para cada ponto de contato.
+                                </p>
+                            </div>
+                        </div>
 
-    <section class="border border-slate-200 rounded-xl bg-white">
-      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
-              onclick="toggleModule('mod4')">
-        <span>Módulo 04 · Respostas Rápidas</span>
-        <span id="icon-mod4">+</span>
-      </button>
-      <div id="mod4" class="hidden px-6 pb-6 text-slate-700">
-        Mensagens padronizadas acionadas por atalhos.
-      </div>
-    </section>
+                        <hr class="border-slate-100 my-10">
 
-    <section class="border border-slate-200 rounded-xl bg-white">
-      <button class="w-full px-6 py-4 font-semibold flex justify-between items-center"
-              onclick="toggleModule('mod5')">
-        <span>Módulo 05 · Configurações Gerais</span>
-        <span id="icon-mod5">+</span>
-      </button>
-      <div id="mod5" class="hidden px-6 pb-6 text-slate-700">
-        Configurações globais, permissões e integrações.
-      </div>
-    </section>
+                        <h4 class="text-2xl font-bold text-slate-900 mb-4 tracking-tight">Adicionando uma Nova Fila</h4>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Ao iniciar o cadastro, você parametrizará a conexão de saída de mensagens e o comportamento do bot para aquele setor específico.
+                        </p>
+                        
+                        <img src="imagens/criafila.png" alt="Formulário de Criação de Fila" class="w-full rounded-2xl border border-slate-200 shadow-xl" />
 
-  </main>
+                        <h4 class="text-xl font-bold text-slate-900 mt-12 mb-4 italic">Definição de Provedores</h4>
+                        <p class="text-slate-600 leading-relaxed mb-6">
+                            Selecione o motor de inteligência: <strong>Chatbot Interno</strong> (menu nativo), <strong>Typebot</strong> (fluxos complexos) ou <strong>Webhook/N8N</strong> (integrações externas).
+                        </p>
+                        
+                        <img src="imagens/modelobot.png" alt="Seleção de Provedor de Bot" class="w-full rounded-2xl border border-slate-200 shadow-xl" />
 
-  <script>
-    function toggleModule(id) {
-      const content = document.getElementById(id);
-      const icon = document.getElementById(`icon-${id}`);
-      const isOpen = !content.classList.contains('hidden');
+                        <div class="bg-amber-50 border-l-4 border-amber-600 p-8 rounded-xl my-10">
+                            <h5 class="text-amber-900 font-extrabold text-lg flex items-center gap-2 mb-3">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M8.257 3.099c.765-1.36 2.722-1.36 3.486 0l5.58 9.92c.75 1.334-.213 2.98-1.742 2.98H4.42c-1.53 0-2.493-1.646-1.743-2.98l5.58-9.92zM11 13a1 1 0 11-2 0 1 1 0 012 0zm-1-8a1 1 0 00-1 1v3a1 1 0 002 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path></svg>
+                                Protocolo de Salvamento Crítico
+                            </h5>
+                            <p class="text-amber-800 font-medium">
+                                Alterações em opções (títulos, textos ou ações) requerem o clique obrigatório no <strong>ÍCONE DE DISQUETE</strong>. Ignorar este passo resultará na perda dos dados configurados antes da finalização.
+                            </p>
+                        </div>
 
-      content.classList.toggle('hidden');
-      icon.textContent = isOpen ? '+' : '−';
-    }
-  </script>
+                        <img src="imagens/adicionar.png" alt="Interface de Adição de Opções" class="w-full rounded-2xl border border-slate-200 shadow-xl" />
+                    </div>
+                </div>
+            </section>
 
+            <section class="bg-white border border-slate-200 rounded-3xl shadow-sm overflow-hidden opacity-80 hover:opacity-100 transition">
+                <button onclick="toggleModule('mod2')" class="w-full px-8 py-6 flex items-center justify-between hover:bg-slate-50 transition text-left">
+                    <div class="flex items-center gap-5 text-slate-400">
+                        <span class="w-12 h-12 flex items-center justify-center rounded-2xl bg-slate-100 font-black">02</span>
+                        <h3 class="font-extrabold text-lg tracking-tight">Módulo 02 · Gestão de Conexões</h3>
+                    </div>
+                    <span class="text-2xl">+</span>
+                </button>
+                <div id="mod2" class="hidden px-8 pb-8 border-t pt-6 text-slate-500 italic">Documentação em fase de revisão técnica...</div>
+            </section>
+
+        </div>
+    </main>
+
+    <footer class="bg-slate-900 text-white pt-24 pb-12 mt-24">
+        <div class="max-w-4xl mx-auto px-6 grid md:grid-cols-2 gap-16 border-b border-slate-800 pb-16">
+            <div class="space-y-6">
+                <div class="text-2xl font-black text-blue-400 tracking-tighter">ERP Gestão de Resultados</div>
+                <p class="text-slate-400 leading-relaxed">
+                    Sua infraestrutura de dados e atendimento sob controle total. Tecnologia focada na conversão e satisfação do cliente final.
+                </p>
+            </div>
+            <div class="flex flex-col md:items-end justify-center space-y-4">
+                <a href="https://api.whatsapp.com/send?phone=556793002442" class="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-2xl font-bold shadow-2xl transition-all hover:-translate-y-1">
+                    Solicitar Suporte Técnico
+                </a>
+                <p class="text-slate-500 text-xs tracking-widest uppercase">Versão 2026.1 Enterprise</p>
+            </div>
+        </div>
+        <div class="max-w-4xl mx-auto px-6 pt-8 text-center text-slate-500 text-xs">
+            © 2026 ERPCON Consultoria | Todos os Direitos Reservados.
+        </div>
+    </footer>
+
+    <script>
+        function toggleModule(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById(`icon-${id}`);
+            const isOpen = !content.classList.contains('hidden');
+            
+            content.classList.toggle('hidden');
+            icon.textContent = isOpen ? '+' : '−';
+            icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+    </script>
 </body>
 </html>
