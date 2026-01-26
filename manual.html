@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manual de Operação v2.0 | ERP Gestão de Resultados</title>
+    
     <link rel="icon" type="image/png" href="imagens/logogestao.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -23,14 +25,18 @@
                 <span class="text-2xl font-black text-blue-600 tracking-tighter transition group-hover:scale-105">ERP</span>
                 <span class="text-lg font-bold text-slate-700">Gestão de Resultados</span>
             </a>
-            <a href="index.html" class="text-sm font-semibold text-blue-600 hover:bg-blue-50 px-4 py-2 rounded-lg transition border border-transparent hover:border-blue-200">← Voltar ao Site</a>
+            <div class="flex gap-6 items-center">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Início</a>
+                <a href="planos.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Planos</a>
+                <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-md shadow-blue-100">Login</a>
+            </div>
         </div>
     </nav>
 
     <header class="max-w-4xl mx-auto px-6 py-20 text-center md:text-left">
         <span class="px-4 py-1.5 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">Documentação Corporativa Oficial</span>
         <h1 class="mt-8 text-5xl font-extrabold text-slate-900 tracking-tight sm:text-6xl">Manual do Usuário</h1>
-        <p class="mt-6 text-xl text-slate-600 leading-relaxed max-w-2xl">Guia técnico completo para a administração, configuração de fluxos e operação da central de atendimentos.</p>
+        <p class="mt-6 text-xl text-slate-600 leading-relaxed max-w-2xl">Guia técnico completo para a administração, configuração de fluxos e operação da plataforma.</p>
     </header>
 
     <main class="max-w-4xl mx-auto px-6 pb-32 space-y-10">
@@ -47,7 +53,7 @@
                 <span id="icon-mod1" class="text-blue-600 text-4xl font-light transition-transform">+</span>
             </button>
             <div id="mod1" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600 leading-relaxed">
-                <p>O módulo de Filas & Chatbot é a base para organizar toda a sua estrutura de atendimento. Uma "Fila" funciona como um departamento (ex: Vendas, Suporte).</p>
+                <p>O módulo de Filas & Chatbot é a base para organizar sua estrutura de atendimento. Uma "Fila" funciona como um departamento (ex: Vendas, Suporte).</p>
                 <img src="imagens/filachat.PNG" alt="Interface Filas" class="img-placeholder">
                 <ul class="list-disc ml-6 space-y-2">
                     <li><strong>+ ADICIONAR:</strong> Cria uma nova opção de menu para o cliente.</li>
@@ -74,12 +80,9 @@
             <div id="mod2" class="hidden px-10 pb-16 border-t pt-10 space-y-8">
                 <p>Cadastre seus canais (WhatsApp, Instagram, Facebook). Restrito a Administradores.</p>
                 <img src="imagens/mod2_geral.png" alt="Aba Geral" class="img-placeholder">
-                <div class="grid md:grid-cols-2 gap-4">
-                    <div class="p-4 bg-slate-50 rounded-xl border"><strong>Geral:</strong> Nome e Fila padrão.</div>
-                    <div class="p-4 bg-slate-50 rounded-xl border"><strong>Mensagens:</strong> Saudação e Conclusão.</div>
-                </div>
-                <div class="p-4 bg-blue-50 rounded-xl text-blue-900 text-sm font-semibold italic">
-                    Dica: Use {{name}} para o nome do contato e {{protocol}} para o número do ticket.
+                <div class="grid md:grid-cols-2 gap-4 text-slate-600">
+                    <div class="p-4 bg-slate-50 rounded-xl border italic text-sm"><strong>Geral:</strong> Nome e Fila padrão.</div>
+                    <div class="p-4 bg-slate-50 rounded-xl border italic text-sm"><strong>Mensagens:</strong> Saudação e Conclusão.</div>
                 </div>
             </div>
         </section>
@@ -95,7 +98,7 @@
                 </div>
                 <span id="icon-mod3" class="text-emerald-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod3" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
+            <div id="mod3" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
                 <p><strong>Admin:</strong> Acesso total. | <strong>User:</strong> Acesso apenas ao atendimento.</p>
                 <div class="alert-box bg-emerald-50 border-emerald-500 text-emerald-900">
                     <strong>Supervisor:</strong> Perfil Admin + "Ocultar interface de administração".
@@ -109,18 +112,18 @@
                 <div class="flex items-center gap-6">
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-rose-600 text-white font-black shadow-lg shadow-rose-100">04</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Operação de Atendimento</h3>
-                        <p class="text-sm text-slate-500 font-medium">O centro operacional e gestão de tickets.</p>
+                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Atendimentos</h3>
+                        <p class="text-sm text-slate-500 font-medium">Operação diária e gestão de tickets.</p>
                     </div>
                 </div>
                 <span id="icon-mod4" class="text-rose-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod4" class="hidden px-10 pb-16 border-t pt-10 space-y-8">
+            <div id="mod4" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600">
                 <p>Painel de tickets organizados por: <strong>Aguardando</strong>, <strong>Atendendo</strong> e <strong>Resolvidos</strong>.</p>
                 <img src="imagens/tela.png" alt="Painel Atendimento" class="img-placeholder">
                 <div class="space-y-2">
-                    <p><span class="tech-badge">Aceitar</span>: Assume a responsabilidade pelo ticket.</p>
-                    <p><span class="tech-badge">Transferir</span>: Envia para outro colega ou setor.</p>
+                    <p><span class="tech-badge">Aceitar</span>: Assume o ticket.</p>
+                    <p><span class="tech-badge">Transferir</span>: Envia para colega ou setor.</p>
                 </div>
             </div>
         </section>
@@ -131,13 +134,13 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-cyan-600 text-white font-black shadow-lg shadow-cyan-100">05</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Respostas Rápidas</h3>
-                        <p class="text-sm text-slate-500 font-medium">Padronização e agilidade no envio de mensagens.</p>
+                        <p class="text-sm text-slate-500 font-medium">Agilidade no envio de mensagens padronizadas.</p>
                     </div>
                 </div>
                 <span id="icon-mod5" class="text-cyan-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod5" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
-                <p>Utilize a barra <span class="tech-badge">/</span> na caixa de texto do atendimento para acionar atalhos e enviar mensagens ou mídias pré-cadastradas.</p>
+            <div id="mod5" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
+                <p>Use a barra <span class="tech-badge">/</span> no chat para acionar atalhos de mensagens pré-salvas.</p>
                 <img src="imagens/mod5_respostas.png" alt="Respostas Rápidas" class="img-placeholder">
             </div>
         </section>
@@ -148,16 +151,13 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-orange-600 text-white font-black shadow-lg shadow-orange-100">06</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Contatos</h3>
-                        <p class="text-sm text-slate-500 font-medium">Gestão da agenda e importação de leads.</p>
+                        <p class="text-sm text-slate-500 font-medium">Gestão da agenda centralizada.</p>
                     </div>
                 </div>
                 <span id="icon-mod6" class="text-orange-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod6" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
-                <p>Visualize e importe listas em CSV. O número deve conter <span class="font-bold">DDI + DDD + Número</span>.</p>
-                <div class="p-4 bg-orange-50 border-orange-500 border-l-4 rounded-r-xl text-sm">
-                    <strong>Desabilitar Chatbot:</strong> Evite loops ao falar com contatos que também usam robôs.
-                </div>
+            <div id="mod6" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
+                <p>Importe CSV. Números devem usar o padrão: <span class="tech-badge">DDI+DDD+Número</span>.</p>
                 <img src="imagens/contatos.PNG" alt="Agenda Contatos" class="img-placeholder">
             </div>
         </section>
@@ -168,13 +168,13 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-purple-600 text-white font-black shadow-lg shadow-purple-100">07</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Agendamentos</h3>
-                        <p class="text-sm text-slate-500 font-medium">Programação de mensagens para envios futuros.</p>
+                        <p class="text-sm text-slate-500 font-medium">Programação de mensagens automáticas.</p>
                     </div>
                 </div>
                 <span id="icon-mod7" class="text-purple-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod7" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
-                <p>Ideal para lembretes e follow-ups. Programe data e hora exatas para o disparo automático.</p>
+            <div id="mod7" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
+                <p>Programe data e hora exatas para o disparo automático de mensagens.</p>
                 <img src="imagens/agenda.PNG" alt="Tela Agendamentos" class="img-placeholder">
             </div>
         </section>
@@ -185,13 +185,13 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-yellow-500 text-white font-black shadow-lg shadow-yellow-100">08</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Tags</h3>
-                        <p class="text-sm text-slate-500 font-medium">Categorização visual de tickets e contatos.</p>
+                        <p class="text-sm text-slate-500 font-medium">Categorização e filtros visuais.</p>
                     </div>
                 </div>
                 <span id="icon-mod8" class="text-yellow-500 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod8" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
-                <p>Crie etiquetas coloridas (ex: "VIP", "Urgente") para filtrar e organizar seu funil de atendimento.</p>
+            <div id="mod8" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
+                <p>Crie etiquetas coloridas para filtrar e organizar seu funil de atendimento.</p>
                 <img src="imagens/mod8_tags.png" alt="Sistema de Tags" class="img-placeholder">
             </div>
         </section>
@@ -202,13 +202,13 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-teal-600 text-white font-black shadow-lg shadow-teal-100">09</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Chat Interno</h3>
-                        <p class="text-sm text-slate-500 font-medium">Comunicação e colaboração entre usuários.</p>
+                        <p class="text-sm text-slate-500 font-medium">Comunicação exclusiva entre a equipe.</p>
                     </div>
                 </div>
                 <span id="icon-mod9" class="text-teal-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod9" class="hidden px-10 pb-16 border-t pt-10 space-y-6">
-                <p>Comunique-se com a equipe em grupos privados sem sair da plataforma. Clique em "NOVA" para criar grupos por setor.</p>
+            <div id="mod9" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
+                <p>Comunique-se com colegas em grupos privados sem poluir a conversa com o cliente.</p>
                 <img src="imagens/interno.PNG" alt="Chat Equipe" class="img-placeholder">
             </div>
         </section>
@@ -219,18 +219,14 @@
                     <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-900 text-white font-black shadow-lg shadow-slate-200">10</span>
                     <div>
                         <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Configurações Mestres</h3>
-                        <p class="text-sm text-slate-500 font-medium">O painel de controle global do sistema.</p>
+                        <p class="text-sm text-slate-500 font-medium">O painel de controle global.</p>
                     </div>
                 </div>
                 <span id="icon-mod10" class="text-slate-900 text-4xl font-light transition-transform">+</span>
             </button>
             <div id="mod10" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600 leading-relaxed">
-                <p>Painel global: Ative NPS, IA para transcrição de áudio e timeouts de chatbot.</p>
-                <div class="p-5 bg-slate-100 rounded-2xl border border-slate-200 font-medium">
-                    Visualização: Configure como "Por Fila" para supervisão compartilhada de históricos.
-                </div>
+                <p>Ative NPS, IA para transcrição de áudio e timeouts de chatbot.</p>
                 <img src="imagens/mod10_config.png" alt="Painel Configurações" class="img-placeholder">
-                <img src="imagens/mod11_config.png" alt="Painel Configurações" class="img-placeholder">
             </div>
         </section>
 
@@ -254,7 +250,7 @@
         }
     </script>
 
-    <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Estou no site e preciso de suporte." 
+    <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Estou no Manual e preciso de suporte." 
        target="_blank" 
        class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center group">
         <span class="absolute right-full mr-3 bg-slate-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Dúvida? Fale conosco</span>
