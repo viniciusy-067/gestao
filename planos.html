@@ -1,45 +1,149 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Planos | ERP Gestão de Resultados</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-  <style>body { font-family: 'Inter', sans-serif; }</style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Planos | ERP Gestão de Resultados</title>
+    <link rel="icon" type="image/png" href="imagens/logogestao.png">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .pricing-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .pricing-card:hover { transform: translateY(-8px); }
+    </style>
 </head>
-<body class="bg-slate-50 text-slate-900">
-  <nav class="px-8 py-6 bg-white shadow-sm text-center">
-    <a href="index.html" class="text-2xl font-bold text-blue-600">ERP Gestão de Resultados</a>
-  </nav>
+<body class="bg-slate-50 text-slate-900 antialiased">
 
-  <main class="max-w-6xl mx-auto px-8 py-16">
-    <header class="text-center mb-12">
-      <h1 class="text-4xl font-extrabold mb-4">Escolha seu Plano</h1>
-      <p class="text-slate-600">Soluções integradas para sua empresa!</p>
-    </header>
+    <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-2 group">
+                <span class="text-2xl font-black text-blue-600 tracking-tighter">ERP</span>
+                <span class="text-lg font-bold text-slate-700">Gestão de Resultados</span>
+            </a>
+            <div class="flex gap-6 items-center">
+                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Início</a>
+                <a href="manual.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Manual</a>
+                <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-md shadow-blue-100">Login</a>
+            </div>
+        </div>
+    </nav>
 
-    <div class="grid md:grid-cols-3 gap-8">
-      <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col shadow-sm">
-        <h3 class="text-xl font-bold mb-2">Básico</h3>
-        <div class="text-3xl font-bold mb-6 italic">R$ 99<span class="text-lg font-normal text-slate-500">/mês</span></div>
-        <ul class="space-y-4 mb-8 text-slate-600 flex-grow"><li>✓ 1 Conexão</li><li>✓ 3 Atendentes</li></ul>
-        <button class="w-full py-3 rounded-lg border-2 border-blue-600 text-blue-600 font-semibold">Assinar</button>
-      </div>
-      <div class="bg-white p-8 rounded-2xl border-2 border-blue-600 flex flex-col shadow-xl transform md:scale-105">
-        <div class="bg-blue-600 text-white text-xs font-bold px-3 py-1 rounded-full self-start mb-4 uppercase">Popular</div>
-        <h3 class="text-xl font-bold mb-2">Profissional</h3>
-        <div class="text-3xl font-bold mb-6 italic">R$ 199<span class="text-lg font-normal text-slate-500">/mês</span></div>
-        <ul class="space-y-4 mb-8 text-slate-600 flex-grow"><li>✓ 3 Conexões</li><li>✓ 10 Atendentes</li><li>✓ Chatbot Avançado</li></ul>
-        <button class="w-full py-3 rounded-lg bg-blue-600 text-white font-semibold">Começar Agora</button>
-      </div>
-      <div class="bg-white p-8 rounded-2xl border border-slate-200 flex flex-col shadow-sm">
-        <h3 class="text-xl font-bold mb-2">Enterprise</h3>
-        <div class="text-3xl font-bold mb-6 italic">Personalizado</div>
-        <ul class="space-y-4 mb-8 text-slate-600 flex-grow"><li>✓ Ilimitado</li><li>✓ API integrações</li><li>✓ Consultoria Inclusa</li></ul>
-        <button class="w-full py-3 rounded-lg border-2 border-slate-600 text-slate-600 font-semibold">Consultar</button>
-      </div>
-    </div>
-  </main>
-  </body>
+    <main class="max-w-6xl mx-auto px-8 py-20">
+        <header class="text-center mb-20">
+            <span class="px-4 py-1.5 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">Tabelas de Investimento</span>
+            <h1 class="mt-6 text-5xl font-black text-slate-900 tracking-tight sm:text-6xl">Planos sob medida.</h1>
+            <p class="mt-6 text-xl text-slate-600 max-w-2xl mx-auto leading-relaxed">
+                Escalabilidade técnica e suporte especializado para impulsionar seus resultados operacionais.
+            </p>
+        </header>
+
+        <div class="grid md:grid-cols-3 gap-8 items-stretch">
+            
+            <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 flex flex-col pricing-card shadow-sm hover:shadow-2xl hover:shadow-slate-200">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Básico</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold text-slate-900">R$</span>
+                        <span class="text-5xl font-black text-slate-900 tracking-tighter">99</span>
+                        <span class="text-slate-500 font-medium">/mês</span>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-500 font-medium">Ideal para pequenas operações iniciais.</p>
+                </div>
+                
+                <ul class="space-y-4 mb-10 text-slate-600 flex-grow">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-medium text-sm">1 Conexão Oficial</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-medium text-sm">3 Atendentes</span>
+                    </li>
+                    <li class="flex items-center gap-3 opacity-40 italic">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+                        <span class="text-sm">Chatbot Avançado</span>
+                    </li>
+                </ul>
+
+                <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Desejo assinar o Plano Básico de R$ 99/mês." target="_blank" class="w-full py-4 rounded-2xl border-2 border-slate-200 text-slate-900 font-bold hover:bg-slate-50 hover:border-slate-300 transition-all text-center">
+                    Assinar Básico
+                </a>
+            </div>
+
+            <div class="relative bg-white p-10 rounded-[2.5rem] border-2 border-blue-600 flex flex-col pricing-card shadow-2xl shadow-blue-100 transform md:scale-105 z-10">
+                <div class="absolute -top-5 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-xs font-black px-6 py-2 rounded-full uppercase tracking-widest shadow-lg">
+                    Mais Popular
+                </div>
+                
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-slate-900 mb-4">Profissional</h3>
+                    <div class="flex items-baseline gap-1">
+                        <span class="text-2xl font-bold text-blue-600">R$</span>
+                        <span class="text-5xl font-black text-slate-900 tracking-tighter">199</span>
+                        <span class="text-slate-500 font-medium">/mês</span>
+                    </div>
+                    <p class="mt-4 text-sm text-slate-500 font-medium">O melhor custo-benefício para escala.</p>
+                </div>
+                
+                <ul class="space-y-4 mb-10 text-slate-600 flex-grow">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-bold text-slate-900 text-sm">3 Conexões Multicanal</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-bold text-slate-900 text-sm">10 Atendentes</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-bold text-slate-900 text-sm">Chatbot Avançado & IA</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-bold text-slate-900 text-sm">Treinamento de Equipe</span>
+                    </li>
+                </ul>
+
+                <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Desejo assinar o Plano Profissional de R$ 199/mês." target="_blank" class="w-full py-5 rounded-2xl bg-blue-600 text-white font-black hover:bg-blue-700 transition-all shadow-xl shadow-blue-200 text-center">
+                    Começar Agora
+                </a>
+            </div>
+
+            <div class="bg-slate-900 p-10 rounded-[2.5rem] border border-slate-800 flex flex-col pricing-card shadow-sm">
+                <div class="mb-8">
+                    <h3 class="text-xl font-bold text-blue-400 mb-4">Enterprise</h3>
+                    <div class="text-4xl font-black text-white tracking-tight">Personalizado</div>
+                    <p class="mt-4 text-sm text-slate-400 font-medium">Soluções robustas para grandes demandas.</p>
+                </div>
+                
+                <ul class="space-y-4 mb-10 text-slate-300 flex-grow">
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-medium text-sm">Usuários Ilimitados</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-medium text-sm">Acesso Total via API</span>
+                    </li>
+                    <li class="flex items-center gap-3">
+                        <svg class="w-5 h-5 text-blue-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+                        <span class="font-medium text-sm">Consultoria de Fluxos</span>
+                    </li>
+                </ul>
+
+                <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Preciso de uma proposta personalizada para o Plano Enterprise." target="_blank" class="w-full py-4 rounded-2xl bg-white text-slate-900 font-bold hover:bg-slate-100 transition-all text-center">
+                    Falar com Consultor
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 py-12 text-center">
+        <p class="text-slate-400 text-xs font-bold uppercase tracking-widest">© 2026 ERPCON Consultoria | Tecnologia para Gestão de Resultados</p>
+    </footer>
+
+</body>
 </html>
