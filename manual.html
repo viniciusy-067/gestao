@@ -4,240 +4,390 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manual de Operação v2.0 | ERP Gestão de Resultados</title>
-    
     <link rel="icon" type="image/png" href="imagens/logogestao.png">
-    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .module-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .img-placeholder { width: 100%; border-radius: 1rem; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin: 1.5rem 0; background: #f8fafc; }
-        .tech-badge { background: #f1f5f9; color: #475569; padding: 2px 8px; border-radius: 4px; font-family: monospace; font-size: 0.85rem; border: 1px solid #e2e8f0; }
-        .alert-box { border-left-width: 4px; padding: 1.25rem; border-radius: 0.5rem; margin: 1.5rem 0; }
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; }
+        .module-card { transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); border: 1px solid #e2e8f0; }
+        .img-placeholder { width: 100%; border-radius: 1.5rem; border: 1px solid #e2e8f0; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); margin: 2rem 0; background: #fff; padding: 8px; }
+        .tech-badge { background: #f1f5f9; color: #475569; padding: 4px 10px; border-radius: 6px; font-family: monospace; font-size: 0.9rem; border: 1px solid #e2e8f0; font-weight: 600; }
+        .alert-box { border-left-width: 6px; padding: 1.5rem; border-radius: 1rem; margin: 2rem 0; font-size: 1rem; line-height: 1.6; }
+        .rich-text { line-height: 1.8; color: #334155; font-size: 1.05rem; }
+        .rich-text p { margin-bottom: 1.5rem; }
+        .rich-text h4 { margin-top: 2.5rem; margin-bottom: 1rem; }
+        .section-header { background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 antialiased">
+<body class="antialiased text-slate-800">
 
     <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
         <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
             <a href="index.html" class="flex items-center gap-2 group">
                 <span class="text-2xl font-black text-blue-600 tracking-tighter transition group-hover:scale-105">ERP</span>
-                <span class="text-lg font-bold text-slate-700"></span>
+                <span class="text-lg font-bold text-slate-700 uppercase tracking-widest ml-1">Manual</span>
             </a>
-            <div class="flex gap-6 items-center">
-                <a href="index.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Início</a>
-                <a href="planos.html" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Planos</a>
-                <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-5 py-2 rounded-lg text-sm font-bold hover:bg-blue-700 transition shadow-md shadow-blue-100">Login</a>
+            <div class="flex gap-6 items-center font-bold text-sm">
+                <a href="index.html" class="text-slate-600 hover:text-blue-600 transition">Início</a>
+                <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-6 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100">Login</a>
             </div>
         </div>
     </nav>
 
-    <header class="max-w-4xl mx-auto px-6 py-20 text-center md:text-left">
-        <span class="px-4 py-1.5 text-xs font-bold tracking-widest text-blue-700 uppercase bg-blue-100 rounded-full">Documentação Corporativa Oficial</span>
-        <h1 class="mt-8 text-5xl font-extrabold text-slate-900 tracking-tight sm:text-6xl">Manual do Usuário</h1>
-        <p class="mt-6 text-xl text-slate-600 leading-relaxed max-w-2xl">Guia técnico completo para a administração, configuração de fluxos e operação da plataforma.</p>
+    <header class="max-w-4xl mx-auto px-6 py-20">
+        <span class="px-4 py-1.5 text-xs font-black tracking-[0.2em] text-blue-700 uppercase bg-blue-50 rounded-full">Documentação Oficial v2.0</span>
+        <h1 class="mt-8 text-5xl md:text-6xl font-black text-slate-900 tracking-tight leading-tight">Manual do Usuário <br><span class="text-blue-600">Completo</span></h1>
+        <p class="mt-6 text-xl text-slate-500 leading-relaxed max-w-2xl">Guia técnico detalhado para administração, fluxos e operação total da plataforma.</p>
     </header>
 
-    <main class="max-w-4xl mx-auto px-6 pb-32 space-y-10">
+    <main class="max-w-4xl mx-auto px-6 pb-40 space-y-12">
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod1')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-blue-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-blue-600 text-white font-black shadow-lg shadow-blue-100">01</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod1')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-blue-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl section-header text-white font-black text-2xl shadow-xl shadow-blue-100">01</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Filas & Chatbot</h3>
-                        <p class="text-sm text-slate-500 font-medium">Arquitetura de departamentos e automação de triagem.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Filas & Chatbot</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Arquitetura de departamentos e triagem.</p>
                     </div>
                 </div>
                 <span id="icon-mod1" class="text-blue-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod1" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600 leading-relaxed">
-                <p>O módulo de Filas & Chatbot é a base para organizar sua estrutura de atendimento. Uma "Fila" funciona como um departamento (ex: Vendas, Suporte).</p>
-                <img src="imagens/filachat.PNG" alt="Interface Filas" class="img-placeholder">
-                <ul class="list-disc ml-6 space-y-2">
-                    <li><strong>+ ADICIONAR:</strong> Cria uma nova opção de menu para o cliente.</li>
-                    <li><strong>Exit chatbot:</strong> Encaminha para atendimento humano.</li>
-                    <li><strong>Forward to Queue:</strong> Transfere para outra fila.</li>
-                </ul>
-                <div class="alert-box bg-amber-50 border-amber-500 text-amber-900 font-medium">
-                    ⚠️ QUALQUER ALTERAÇÃO EM OPÇÕES DEVE SER SALVA NO ÍCONE DE DISQUETE ANTES DE ADICIONAR A FILA.
+            <div id="mod1" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>O módulo de Filas & Chatbot é a base para organizar toda a sua estrutura de atendimento. Uma "Fila", neste contexto, funciona como um departamento, setor ou equipe dentro da sua empresa. É aqui que você criará os diferentes grupos que receberão os contatos dos clientes, como "Vendas", "Suporte Técnico", "Financeiro", etc.</p>
+                <p>Além de criar as filas, esta seção permite configurar a primeira interação automática com o cliente, como a "Mensagem de Saudação" que ele receberá assim que iniciar uma conversa. As filas que você criar aqui serão essenciais no próximo módulo, pois cada "Conexão" (canal de WhatsApp, Instagram, etc.) deverá ser direcionada para uma fila específica.</p>
+
+                <h4 class="font-bold text-xl text-slate-900">Acesso e Permissões</h4>
+                <p>Para acessar esta área, utilize o menu de navegação localizado na lateral esquerda da tela. Clique na seção <strong>Administração</strong> e, em seguida, na opção <strong>Filas & Chatbot</strong>.</p>
+                
+                <div class="alert-box bg-amber-50 border-amber-500 text-amber-900">
+                    <strong>⚠️ Importante:</strong> A criação e o gerenciamento de filas e chatbots são funcionalidades restritas a usuários com perfil de Administrador. Essa organização é a base de toda a estrutura de atendimento da plataforma e, por isso, seu acesso é controlado.
                 </div>
+
+                <h4 class="font-bold text-xl text-slate-900">Interface da Tela de Filas & Chatbot</h4>
+                <p>Ao acessar a tela, você encontrará os seguintes elementos:</p>
+                <ul class="list-disc ml-8 space-y-3 mb-8">
+                    <li><strong>Lista de Filas:</strong> A área principal exibe uma lista com todas as filas que já foram criadas. Para cada fila, as seguintes informações são apresentadas: <strong>Nome</strong> (identifica a fila), <strong>Cor</strong> (facilita a identificação visual), <strong>Mensagem de saudação</strong> e <strong>Ações</strong> (Editar ou Excluir).</li>
+                    <li><strong>Botão "ADICIONAR FILA":</strong> Localizado no canto superior direito, este é o botão principal da tela para cadastrar uma nova fila.</li>
+                </ul>
+
+                <img src="imagens/filachat.PNG" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Adicionando uma Nova Fila</h4>
+                <p>Ao clicar no botão "ADICIONAR FILA", uma janela de configuração se abrirá para definir todos os parâmetros do seu novo departamento.</p>
+                
+                <h5 class="font-bold text-blue-700 mt-6 mb-2">Dados da Fila</h5>
+                <p><strong>Nome:</strong> Defina o nome que identificará esta fila em todo o sistema. Este campo é obrigatório.<br>
+                <strong>Cor:</strong> Escolha uma cor para a fila para identificação rápida nos painéis.</p>
+
+                <div class="alert-box bg-blue-50 border-blue-500 text-blue-900 italic">
+                    <strong>Atenção:</strong> O campo "Conexão do WhatsApp" permite "amarrar" esta fila a uma conexão específica. Todas as mensagens enviadas a partir desta fila sairão por este número exclusivo.
+                </div>
+
+                <p><strong>Provedor de Chatbot:</strong> Define qual sistema irá controlar o fluxo de automação:</p>
+                <ul class="list-disc ml-8 space-y-2 mb-6">
+                    <li><strong>Chatbot Interno:</strong> Utiliza o construtor nativo ideal para menus diretos (Ex: Digite 1 para Vendas).</li>
+                    <li><strong>Webhook / N8N:</strong> Para integrações avançadas onde sistemas externos controlam as respostas.</li>
+                    <li><strong>Typebot:</strong> Permite integrar com fluxos construídos na plataforma Typebot.</li>
+                </ul>
+
+                <h4 class="font-bold text-xl text-slate-900">Opções (Menu do Chatbot Interno)</h4>
+                <p>Se selecionou "Chatbot Interno", aqui você constrói o menu interativo:</p>
+                <ul class="list-disc ml-8 space-y-3 mb-6">
+                    <li><strong>+ ADICIONAR:</strong> Cria uma nova opção de menu para o cliente.</li>
+                    <li><strong>Título da opção:</strong> O texto que descreve a opção (Ex: "Falar com Financeiro").</li>
+                    <li><strong>Ícones de Ação:</strong> 
+                        <br><strong>Disquete (Salvar):</strong> <span class="text-red-600 font-bold">!! PONTO DE ATENÇÃO MÁXIMA !!</span> Qualquer alteração DEVE SER SALVA clicando neste ícone. Se apenas clicar em "ADICIONAR" no final da janela, as configurações serão perdidas.
+                        <br><strong>Lixeira (Excluir):</strong> Remove a opção.</li>
+                    <li><strong>Digite o texto da opção:</strong> A resposta que o cliente receberá.</li>
+                    <li><strong>Exit chatbot:</strong> A automação para e o ticket vai para atendimento humano.</li>
+                    <li><strong>Forward to Queue:</strong> Transfere automaticamente para outra fila.</li>
+                </ul>
+
+                <p><strong>Botões de Ação Principais:</strong> ANEXAR ARQUIVO (imagens, vídeos ou documentos na saudação), CANCELAR e ADICIONAR (salva a configuração geral da fila).</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod2')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-indigo-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-indigo-600 text-white font-black shadow-lg shadow-indigo-100">02</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod2')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-indigo-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-indigo-600 text-white font-black text-2xl shadow-xl shadow-indigo-100">02</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Conexões Multicanal</h3>
-                        <p class="text-sm text-slate-500 font-medium">Integração de canais oficiais e mensageria.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Conexões Multicanal</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Integração de canais oficiais e mensageria.</p>
                     </div>
                 </div>
                 <span id="icon-mod2" class="text-indigo-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod2" class="hidden px-10 pb-16 border-t pt-10 space-y-8">
-                <p>Cadastre seus canais (WhatsApp, Instagram, Facebook). Restrito a Administradores.</p>
-                <img src="imagens/mod2_geral.png" alt="Aba Geral" class="img-placeholder">
-                <div class="grid md:grid-cols-2 gap-4 text-slate-600">
-                    <div class="p-4 bg-slate-50 rounded-xl border italic text-sm"><strong>Geral:</strong> Nome e Fila padrão.</div>
-                    <div class="p-4 bg-slate-50 rounded-xl border italic text-sm"><strong>Mensagens:</strong> Saudação e Conclusão.</div>
+            <div id="mod2" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>O módulo de Conexões é o ponto de partida crítico. É aqui que você cadastra e gerencia todos os canais de comunicação (WhatsApp, Instagram, etc.). Uma vez ativa, as conversas são organizadas e distribuídas para suas equipes.</p>
+
+                <h4 class="font-bold text-xl text-slate-900">Acesso e Permissões</h4>
+                <p>Acesse via <strong>Administração > Conexões</strong>. O gerenciamento é restrito a Administradores para garantir a segurança dos canais oficiais da empresa.</p>
+                
+                <img src="imagens/mod2_geral.png" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Interface da Tela de Conexões</h4>
+                <p>Exibe o <strong>Nome</strong>, <strong>Channel</strong> (tipo de canal), <strong>Status</strong> (Online/Offline/Ler QR Code), <strong>Padrão</strong> e <strong>Ações</strong>. O botão "ADICIONAR CONEXÃO" inicia o vínculo de um novo canal.</p>
+
+                <h4 class="font-bold text-xl text-slate-900">Adicionando uma Nova Conexão</h4>
+                <p>A janela é dividida em abas:</p>
+                <p><strong>Aba GERAL:</strong> Define a Fila principal de destino dos contatos.</p>
+                <div class="bg-slate-50 p-6 rounded-2xl border border-slate-200 mb-6">
+                    <strong>Recomendação:</strong> Crie uma fila de "Triagem" para qualificar o cliente antes de transferir para o setor final.
                 </div>
+
+                <p><strong>Aba MENSAGENS:</strong> Configura Saudação, Conclusão (Obrigatório), Transferência, Fora de Expediente e Avaliação (esta última se a pesquisa estiver ativa). Use <code>{{name}}</code> e <code>{{protocol}}</code> para personalizar.</p>
+                <img src="imagens/abamensagens.png" class="img-placeholder">
+
+                <p><strong>Aba AVANÇADO:</strong> Contém campos como Token, Hub Token e Proxy. Devem ser alterados apenas por técnicos se a infraestrutura da empresa exigir.</p>
+                <img src="imagens/avancado.png" class="img-placeholder">
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod3')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-emerald-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-emerald-600 text-white font-black shadow-lg shadow-emerald-100">03</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod3')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-emerald-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-emerald-600 text-white font-black text-2xl shadow-xl shadow-emerald-100">03</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Gestão de Equipe</h3>
-                        <p class="text-sm text-slate-500 font-medium">Controle de usuários, perfis e permissões.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Gestão de Equipe</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Administração de usuários e permissões.</p>
                     </div>
                 </div>
                 <span id="icon-mod3" class="text-emerald-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod3" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p><strong>Admin:</strong> Acesso total. | <strong>User:</strong> Acesso apenas ao atendimento.</p>
-                <div class="alert-box bg-emerald-50 border-emerald-500 text-emerald-900">
-                    <strong>Supervisor:</strong> Perfil Admin + "Ocultar interface de administração".
+            <div id="mod3" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>O módulo de Usuários gerencia quem acessa a plataforma, definindo perfis e associando-os às filas. Acesse via <strong>Administração > Usuários</strong>. Funcionalidade restrita a Administradores.</p>
+
+                <h4 class="font-bold text-xl text-slate-900">Interface e Cadastro</h4>
+                <p>Exibe Nome, E-mail, Perfil e Ações. Ao adicionar um usuário, preencha:</p>
+                <ul class="list-disc ml-8 space-y-2 mb-6">
+                    <li><strong>Nome, Senha e Email:</strong> Dados básicos.</li>
+                    <li><strong>Filas:</strong> Selecione as filas que o usuário poderá visualizar.</li>
+                    <li><strong>Perfil:</strong> <strong>User</strong> (atendentes) ou <strong>Admin</strong> (acesso total).</li>
+                </ul>
+
+                <img src="imagens/adm03.PNG" class="img-placeholder">
+
+                <div class="alert-box bg-blue-50 border-blue-600 text-blue-900">
+                    <h4 class="font-bold mb-2">Como Criar um Perfil de "Supervisor"</h4>
+                    <p>Para um usuário ver várias filas sem acesso total às configurações:</p>
+                    <ol class="list-decimal ml-8 space-y-1">
+                        <li>Selecione Perfil <strong>Admin</strong>.</li>
+                        <li>Ative <strong>"Ocultar interface de administração"</strong>.</li>
+                        <li>Selecione todas as filas que ele poderá gerenciar.</li>
+                    </ol>
                 </div>
-                <img src="imagens/adm03.PNG" alt="Tela Usuários" class="img-placeholder">
+                <img src="imagens/Adicionando.png" class="img-placeholder">
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod4')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-rose-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-rose-600 text-white font-black shadow-lg shadow-rose-100">04</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod4')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-rose-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-rose-600 text-white font-black text-2xl shadow-xl shadow-rose-100">04</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Atendimentos</h3>
-                        <p class="text-sm text-slate-500 font-medium">Operação diária e gestão de tickets.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Atendimentos</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Operação diária e gestão de tickets.</p>
                     </div>
                 </div>
                 <span id="icon-mod4" class="text-rose-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod4" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600">
-                <p>Painel de tickets organizados por: <strong>Aguardando</strong>, <strong>Atendendo</strong> e <strong>Resolvidos</strong>.</p>
-                <img src="imagens/tela.png" alt="Painel Atendimento" class="img-placeholder">
-                <div class="space-y-2">
-                    <p><span class="tech-badge">Aceitar</span>: Assume o ticket.</p>
-                    <p><span class="tech-badge">Transferir</span>: Envia para colega ou setor.</p>
-                </div>
+            <div id="mod4" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>A tela de Atendimento é o centro de operações onde as conversas tornam-se "tickets". Atendentes veem apenas suas filas, enquanto Admins/Supervisores têm visão ampla.</p>
+                <img src="imagens/tela.png" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Interface e Painéis</h4>
+                <ul class="list-disc ml-8 space-y-3 mb-8">
+                    <li><strong>Painel de Gerenciamento:</strong> Abas de ABERTAS (Atendendo/Aguardando), RESOLVIDOS e BUSCA (recomendado usar Tags).</li>
+                    <li><strong>Barra de Ferramentas:</strong> Botão NOVO (iniciar conversa manual), Ícone de Sino (Não lidos), Ícone de Usuários (Filtro de Visão) e Filtro de Filas.</li>
+                </ul>
+                <img src="imagens/buscar.png" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Ciclo de Vida de um Ticket</h4>
+                <h5 class="font-bold mt-4">Recebendo e Aceitando:</h5>
+                <p>Na coluna "AGUARDANDO", as ações mudam conforme o perfil:</p>
+                <ul class="list-disc ml-8 space-y-2 mb-6">
+                    <li><strong>Admin/Supervisor:</strong> Pode <strong>Aceitar</strong> (Check Verde), <strong>Espiar</strong> (Olho - ler sem assumir) ou <strong>Rejeitar</strong> (X Vermelho - resolve silenciosamente).</li>
+                    <li><strong>Atendente:</strong> Apenas a opção <strong>Aceitar</strong> está disponível.</li>
+                </ul>
+
+                <h5 class="font-bold mt-4">Interagindo na Conversa:</h5>
+                <p>A barra de envio inclui <strong>Emojis</strong>, <strong>Clipe</strong> (Anexos), <strong>Assinatura</strong> e a crucial <strong>Anotação Interna</strong> (ícone de nota amarela - o cliente não vê).</p>
+                <img src="imagens/conversa.PNG" class="img-placeholder">
+
+                <h5 class="font-bold mt-4">Gerenciamento:</h5>
+                <p><strong>Resolver</strong> (finaliza), <strong>Retomar</strong> (devolve para aguardando) e Menu <strong>Mais Opções</strong> (Agendamento, Transferir, Histórico e Deletar).</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod5')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-cyan-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-cyan-600 text-white font-black shadow-lg shadow-cyan-100">05</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod5')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-cyan-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-cyan-600 text-white font-black text-2xl shadow-xl shadow-cyan-100">05</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Respostas Rápidas</h3>
-                        <p class="text-sm text-slate-500 font-medium">Agilidade no envio de mensagens padronizadas.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Respostas Rápidas</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Agilidade no envio de mensagens padronizadas.</p>
                     </div>
                 </div>
                 <span id="icon-mod5" class="text-cyan-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod5" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p>Use a barra <span class="tech-badge">/</span> no chat para acionar atalhos de mensagens pré-salvas.</p>
-                <img src="imagens/mod5_respostas.png" alt="Respostas Rápidas" class="img-placeholder">
+            <div id="mod5" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>Otimiza o tempo padronizando a comunicação. Acesse via <strong>Atendimento > Respostas Rápidas</strong>.</p>
+                <p><strong>Como usar:</strong> Digite <span class="tech-badge">/</span> em qualquer atendimento para ver a lista de atalhos (saudacao, pix, etc.).</p>
+                <img src="imagens/mod5_respostas.png" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Criação</h4>
+                <p>No botão "NOVA RESPOSTA", defina o <strong>Atalho</strong> (sem a barra), a <strong>Resposta</strong> (texto completo) e use o <strong>Clipe de Papel</strong> para anexar arquivos que serão enviados junto com a resposta.</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod6')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-orange-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-orange-600 text-white font-black shadow-lg shadow-orange-100">06</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod6')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-orange-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-orange-600 text-white font-black text-2xl shadow-xl shadow-orange-100">06</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Contatos</h3>
-                        <p class="text-sm text-slate-500 font-medium">Gestão da agenda centralizada.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Contatos</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Agenda centralizada e importação.</p>
                     </div>
                 </div>
                 <span id="icon-mod6" class="text-orange-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod6" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p>Importe CSV. Números devem usar o padrão: <span class="tech-badge">DDI+DDD+Número</span>.</p>
-                <img src="imagens/contatos.PNG" alt="Agenda Contatos" class="img-placeholder">
+            <div id="mod6" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>Agenda central de todos os clientes. Acesse em <strong>Atendimento > Contatos</strong>. Permite importar/exportar via CSV.</p>
+                <img src="imagens/contatos.PNG" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Ações e Cadastro</h4>
+                <p><strong>Importar WhatsApp:</strong> Sincroniza a agenda de uma conexão ativa.</p>
+                <p><strong>Adicionar Manualmente:</strong> O número deve seguir o padrão <span class="tech-badge">DDI + DDD + Número</span> (Ex: 5511912345678).</p>
+                <div class="bg-amber-50 p-4 rounded-xl border-l-4 border-amber-500 mb-6">
+                    <strong>Dica:</strong> Ative "Desabilitar chatbot" se o contato também for um robô, evitando loops.
+                </div>
+                <p><strong>Ações:</strong> Iniciar Conversa (ícone WhatsApp), Editar (Lápis) e Deletar (Lixeira - irreversível).</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod7')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-purple-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-purple-600 text-white font-black shadow-lg shadow-purple-100">07</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod7')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-purple-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-purple-600 text-white font-black text-2xl shadow-xl shadow-purple-100">07</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Agendamentos</h3>
-                        <p class="text-sm text-slate-500 font-medium">Programação de mensagens automáticas.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Agendamentos</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Programação de mensagens automáticas.</p>
                     </div>
                 </div>
                 <span id="icon-mod7" class="text-purple-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod7" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p>Programe data e hora exatas para o disparo automático de mensagens.</p>
-                <img src="imagens/agenda.PNG" alt="Tela Agendamentos" class="img-placeholder">
+            <div id="mod7" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>Agenda de envio futuro de mensagens. Ideal para follow-ups e lembretes. Pode ser criado via menu <strong>Atendimento > Agendamentos</strong> ou direto no menu "Mais Opções" de um ticket.</p>
+                <img src="imagens/agenda.PNG" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Configuração</h4>
+                <p>Defina o Contato, o Texto e utilize o seletor para a <strong>Data e Hora</strong> exatas. A opção "Salvar Mensagem no Ticket" registra o texto como anotação no histórico para controle da equipe.</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod8')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-yellow-500">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-yellow-500 text-white font-black shadow-lg shadow-yellow-100">08</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod8')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-yellow-500">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-yellow-500 text-white font-black text-2xl shadow-xl shadow-yellow-100">08</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Tags</h3>
-                        <p class="text-sm text-slate-500 font-medium">Categorização e filtros visuais.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Tags</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Categorização e filtros coloridos.</p>
                     </div>
                 </div>
                 <span id="icon-mod8" class="text-yellow-500 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod8" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p>Crie etiquetas coloridas para filtrar e organizar seu funil de atendimento.</p>
-                <img src="imagens/mod8_tags.png" alt="Sistema de Tags" class="img-placeholder">
+            <div id="mod8" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>Etiquetas para organizar o fluxo de trabalho. Modos definidos no Módulo 10: <strong>Tag de Ticket</strong>, <strong>Contato</strong> ou <strong>Ambos</strong>.</p>
+                <img src="imagens/mod8_tags.png" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Criação e Uso</h4>
+                <p>Acesse em <strong>Atendimento > Tags</strong>. Defina Nome e Cor. A aplicação é feita na tela de Atendimento, no campo "Tags", permitindo associar múltiplas etiquetas para categorização detalhada.</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod9')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-teal-600">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-teal-600 text-white font-black shadow-lg shadow-teal-100">09</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod9')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-teal-600">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-teal-600 text-white font-black text-2xl shadow-xl shadow-teal-100">09</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Chat Interno</h3>
-                        <p class="text-sm text-slate-500 font-medium">Comunicação exclusiva entre a equipe.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Chat Interno</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Comunicação e colaboração da equipe.</p>
                     </div>
                 </div>
                 <span id="icon-mod9" class="text-teal-600 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod9" class="hidden px-10 pb-16 border-t pt-10 space-y-6 text-slate-600">
-                <p>Comunique-se com colegas em grupos privados sem poluir a conversa com o cliente.</p>
-                <img src="imagens/interno.PNG" alt="Chat Equipe" class="img-placeholder">
+            <div id="mod9" class="hidden px-10 pb-16 border-t pt-10 rich-text">
+                <h4 class="font-bold text-xl text-slate-900">Visão Geral</h4>
+                <p>Espaço para a equipe colaborar em tempo real sem poluir a conversa com o cliente. Ideal para grupos de departamentos ou comunicados gerais.</p>
+                <img src="imagens/interno.PNG" class="img-placeholder">
+
+                <h4 class="font-bold text-xl text-slate-900">Funcionamento</h4>
+                <p>Acesse em <strong>Atendimento > Chat Interno</strong>. Clique em "NOVA" para criar um grupo, defina o Título e selecione os usuários que participarão da conversa.</p>
             </div>
         </section>
 
-        <section class="bg-white border border-slate-200 rounded-[2.5rem] shadow-sm overflow-hidden module-card">
-            <button onclick="toggleModule('mod10')" class="w-full px-8 py-8 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[10px] border-slate-900">
-                <div class="flex items-center gap-6">
-                    <span class="w-14 h-14 flex items-center justify-center rounded-2xl bg-slate-900 text-white font-black shadow-lg shadow-slate-200">10</span>
+        <section class="bg-white rounded-[2.5rem] shadow-sm overflow-hidden module-card">
+            <button onclick="toggleModule('mod10')" class="w-full px-8 py-10 flex items-center justify-between hover:bg-slate-50 transition text-left border-l-[12px] border-slate-900">
+                <div class="flex items-center gap-8">
+                    <span class="w-16 h-16 flex items-center justify-center rounded-2xl bg-slate-900 text-white font-black text-2xl shadow-xl shadow-slate-200">10</span>
                     <div>
-                        <h3 class="font-extrabold text-slate-900 text-2xl tracking-tight">Configurações Mestres</h3>
-                        <p class="text-sm text-slate-500 font-medium">O painel de controle global.</p>
+                        <h3 class="font-black text-slate-900 text-2xl tracking-tight">Configurações Mestres</h3>
+                        <p class="text-sm text-slate-500 font-medium italic">Painel de controle global do sistema.</p>
                     </div>
                 </div>
                 <span id="icon-mod10" class="text-slate-900 text-4xl font-light transition-transform">+</span>
             </button>
-            <div id="mod10" class="hidden px-10 pb-16 border-t pt-10 space-y-8 text-slate-600 leading-relaxed">
-                <p>Ative NPS, IA para transcrição de áudio e timeouts de chatbot.</p>
-                <img src="imagens/mod10_config.png" alt="Painel Configurações" class="img-placeholder">
-                <img src="imagens/mod11_config.png" alt="Painel Configurações" class="img-placeholder">
+            <div id="mod10" class="hidden px-10 pb-16 border-t pt-10 rich-text space-y-8">
+                <p>Painel de controle mestre restrito a Administradores. Afeta o comportamento global.</p>
+                <img src="imagens/mod10_config.png" class="img-placeholder">
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div>
+                        <h5 class="font-bold text-slate-900 border-b pb-2 mb-4">1. Geral & Timeouts</h5>
+                        <ul class="list-disc ml-5 space-y-2 text-sm">
+                            <li><strong>Avaliações:</strong> Ativa Pesquisa de Satisfação.</li>
+                            <li><strong>Mensagens Rápidas:</strong> Define se são por Usuário ou Empresa.</li>
+                            <li><strong>Timeouts:</strong> Define ações (Fechar/Fila) para tickets inativos ou chatbot parado.</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h5 class="font-bold text-slate-900 border-b pb-2 mb-4">2. Expediente & Privacidade</h5>
+                        <ul class="list-disc ml-5 space-y-2 text-sm">
+                            <li><strong>Expediente:</strong> Configuração por Empresa ou por Fila.</li>
+                            <li><strong>Transferência:</strong> Define se gera novo ticket ou se troca a conexão.</li>
+                            <li><strong>Visibilidade:</strong> Recomendamos "Por Fila" para tickets fechados.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="bg-slate-100 p-6 rounded-3xl">
+                    <h5 class="font-bold mb-2">3. Serviços Externos (IA)</h5>
+                    <p class="text-sm">Escolha entre OpenAI ou <strong>Groq</strong> (recomendado pelo plano gratuito). Ative a <strong>Transcrição de Áudio</strong> automática para agilizar a leitura de mensagens de voz.</p>
+                </div>
+
+                <div class="border p-6 rounded-3xl">
+                    <h5 class="font-bold mb-2">4. API e Mensagens do Sistema</h5>
+                    <p class="text-sm mb-4">Gere o <strong>API Token</strong> para integrações. Personalize mensagens de ticket aceito ou transferência usando <code>{{name}}</code> e <code>{{queue}}</code>.</p>
+                    <img src="imagens/mod11_config.png" class="img-placeholder">
+                </div>
             </div>
         </section>
 
     </main>
 
     <footer class="bg-slate-900 text-white py-16 text-center">
-        <div class="max-w-4xl mx-auto px-6">
-            <p class="text-blue-400 font-bold italic text-lg mb-6">"Tecnologia que impulsiona o crescimento."</p>
-            <p class="text-slate-500 text-xs tracking-widest uppercase">© 2026 ERPCON Consultoria | Material de Propriedade Privada</p>
-        </div>
+        <p class="text-blue-400 font-bold text-lg mb-4 italic">"Tecnologia que impulsiona o crescimento."</p>
+        <p class="text-slate-500 text-xs tracking-widest uppercase">© 2026 ERPCON Consultoria | Material de Propriedade Privada</p>
     </footer>
 
     <script>
@@ -245,20 +395,16 @@
             const content = document.getElementById(id);
             const icon = document.getElementById(`icon-${id}`);
             const isOpen = !content.classList.contains('hidden');
+            
+            // Fecha todos os outros antes de abrir o novo (opcional, remova se quiser abrir vários)
+            // document.querySelectorAll('[id^="mod"]').forEach(el => el.classList.add('hidden'));
+            // document.querySelectorAll('[id^="icon-mod"]').forEach(el => el.textContent = '+');
+
             content.classList.toggle('hidden');
             icon.textContent = isOpen ? '+' : '−';
             icon.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
         }
     </script>
-
-    <a href="https://api.whatsapp.com/send?phone=5567993451501&text=Olá! Estou no Manual e preciso de suporte." 
-       target="_blank" 
-       class="fixed bottom-6 right-6 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:scale-110 transition-all flex items-center justify-center group">
-        <span class="absolute right-full mr-3 bg-slate-800 text-white text-xs px-3 py-1.5 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">Dúvida? Fale conosco</span>
-        <svg class="w-7 h-7" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L0 24l6.335-1.662c1.72.937 3.659 1.432 5.631 1.432h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-        </svg>
-    </a>
 
 </body>
 </html>

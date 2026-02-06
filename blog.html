@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Insights & Estratégia | Blog ERPCON</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #f4f7fa; }
+        .depth-card { background: white; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); box-shadow: 0 10px 30px -10px rgba(0,0,0,0.05); border: 1px solid rgba(255,255,255,0.8); }
+        .depth-card:hover { transform: translateY(-12px) scale(1.01); box-shadow: 0 40px 80px -20px rgba(0,0,0,0.15); border-color: #3b82f6; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.3); }
+        .fade-in { animation: fadeIn 0.8s ease-out forwards; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+        .img-zoom { overflow: hidden; border-radius: 2.5rem; }
+        .img-zoom img { transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1); width: 100%; height: 100%; object-fit: cover; }
+        .depth-card:hover .img-zoom img { transform: scale(1.1); }
+    </style>
+</head>
+<body class="text-slate-900 antialiased">
+
+    <div id="toast-container" class="fixed bottom-10 left-1/2 -translate-x-1/2 z-[200] space-y-4"></div>
+
+    <nav class="sticky top-0 z-[100] glass border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-8 h-24 flex justify-between items-center">
+            <a href="index.html" class="flex items-center gap-3 group">
+                <div class="w-10 h-10 bg-blue-700 rounded-xl flex items-center justify-center text-white font-black shadow-lg">E</div>
+                <span class="text-2xl font-black text-slate-900 tracking-tighter">ERPCON <span class="text-blue-700 italic">Insights</span></span>
+            </a>
+            <div class="hidden md:flex gap-10 items-center font-bold text-sm">
+                <a href="index.html" class="text-slate-500 hover:text-blue-700 transition">Home</a>
+                <a href="catalogo.html" class="text-slate-500 hover:text-blue-700 transition">Produtos</a>
+                <a href="#newsletter" class="bg-slate-900 text-white px-8 py-3 rounded-2xl hover:bg-blue-700 transition shadow-xl shadow-slate-200">Assinar</a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-7xl mx-auto px-8 py-20">
+        <div class="flex flex-col lg:flex-row gap-16">
+            
+            <div class="lg:w-2/3 space-y-20">
+                <div id="post-destaque"></div>
+                <div id="grid-posts" class="grid grid-cols-1 md:grid-cols-2 gap-12"></div>
+            </div>
+
+            <aside class="lg:w-1/3 space-y-8 fade-in">
+                <div class="glass p-10 rounded-[3rem] shadow-xl border border-white">
+                    <h4 class="font-black text-xs uppercase tracking-[0.3em] text-slate-400 mb-8 pb-4 border-b">Editorias</h4>
+                    <div class="space-y-4">
+                        <a href="#" class="flex justify-between items-center group font-bold text-sm hover:text-blue-700 transition">Mercado <span>(1)</span></a>
+                        <a href="#" class="flex justify-between items-center group font-bold text-sm hover:text-blue-700 transition">Tecnologia <span>(1)</span></a>
+                        <a href="#" class="flex justify-between items-center group font-bold text-sm hover:text-blue-700 transition">Imprensa <span>(0)</span></a>
+                    </div>
+                </div>
+                <div id="newsletter" class="bg-blue-700 p-10 rounded-[3rem] text-white shadow-2xl shadow-blue-200 relative overflow-hidden group">
+    <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full transition-transform group-hover:scale-150 duration-700"></div>
+    <h4 class="text-2xl font-black leading-tight mb-6 relative z-10">Receba a <br>estratégia no e-mail.</h4>
+    
+    <form id="form-newsletter" class="space-y-4 relative z-10">
+        <input type="text" name="sobrenome_valida" style="display:none !important" tabindex="-1" autocomplete="off">
+        
+        <input type="email" name="email" placeholder="E-mail" required class="w-full bg-white/10 border border-white/20 rounded-2xl px-6 py-4 text-sm placeholder:text-white/50 outline-none focus:bg-white/20 transition">
+        
+        <input type="hidden" name="motivo" value="Inscrição Newsletter Blog">
+        <input type="hidden" name="nome" value="Assinante do Blog">
+        <input type="hidden" name="mensagem" value="Solicitou entrada na newsletter do Blog.">
+        
+        <button type="submit" class="w-full bg-white text-blue-700 py-4 rounded-2xl font-black text-xs uppercase tracking-widest hover:bg-slate-100 transition shadow-lg">Inscrever agora</button>
+    </form>
+</div>
+                
+            </aside>
+        </div>
+    </main>
+
+    <script src="assets/js/posts.js"></script>
+    <script>
+        function renderizarBlog() {
+            const destaqueContainer = document.getElementById('post-destaque');
+            const gridContainer = document.getElementById('grid-posts');
+
+            banco_posts.forEach((post, index) => {
+                if (post.destaque || index === 0) {
+                    destaqueContainer.innerHTML = `
+                        <article class="depth-card rounded-[3.5rem] overflow-hidden fade-in">
+                            <a href="post-interna.html?id=${post.id}" class="block">
+                                <div class="img-zoom aspect-[21/9] relative">
+                                    <img src="${post.imagem}" alt="${post.titulo}">
+                                    <div class="absolute inset-0 bg-gradient-to-t from-slate-900 via-transparent to-transparent opacity-80"></div>
+                                    <div class="absolute bottom-10 left-10">
+                                        <span class="bg-blue-600 text-white px-4 py-1.5 rounded-lg text-[10px] font-black uppercase tracking-widest mb-4 inline-block">Capa</span>
+                                        <h2 class="text-4xl md:text-5xl font-black text-white tracking-tighter leading-none">${post.titulo}</h2>
+                                    </div>
+                                </div>
+                            </a>
+                            <div class="p-12">
+                                <p class="text-slate-500 text-lg leading-loose font-medium mb-8">${post.resumo}</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center gap-4">
+                                        <div class="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center font-bold text-blue-700">EP</div>
+                                        <div>
+                                            <p class="text-sm font-black uppercase tracking-tighter">Imprensa ERPCON</p>
+                                            <p class="text-[10px] font-bold text-slate-400 uppercase">${post.leitura} • ${post.data}</p>
+                                        </div>
+                                    </div>
+                                    <a href="post-interna.html?id=${post.id}" class="w-14 h-14 rounded-full bg-blue-50 flex items-center justify-center text-blue-700 hover:bg-blue-700 hover:text-white transition-all">
+                                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M17 8l4 4m0 0l-4 4m4-4H3" stroke-width="3"/></svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </article>
+                    `;
+                } else {
+                    gridContainer.innerHTML += `
+                        <article class="depth-card rounded-[3rem] p-8 fade-in">
+                            <a href="post-interna.html?id=${post.id}">
+                                <div class="img-zoom aspect-square mb-8">
+                                    <img src="${post.imagem}" alt="${post.titulo}">
+                                </div>
+                                <span class="text-blue-700 font-black text-[10px] uppercase tracking-[0.2em]">${post.categoria}</span>
+                                <h3 class="text-2xl font-black mt-4 mb-4 tracking-tight leading-tight">${post.titulo}</h3>
+                                <p class="text-slate-500 text-sm font-medium leading-relaxed mb-6 line-clamp-2">${post.resumo}</p>
+                            </a>
+                        </article>
+                    `;
+                }
+            });
+        }
+        window.addEventListener('DOMContentLoaded', renderizarBlog);
+
+        // LÓGICA DE ENVIO DO E-MAIL (NEWSLETTER)
+        document.getElementById('form-newsletter').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const btn = this.querySelector('button');
+            const originalText = btn.innerText;
+            btn.innerText = "ENVIANDO...";
+            btn.disabled = true;
+
+            const formData = new FormData(this);
+
+            fetch('envia_email.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                showToast(data.mensagem, data.tipo.includes('success') ? 'success' : 'error');
+                if(data.tipo.includes('success')) this.reset();
+            })
+            .catch(error => showToast("Erro ao conectar ao servidor.", "error"))
+            .finally(() => {
+                btn.innerText = originalText;
+                btn.disabled = false;
+            });
+        });
+
+        // FUNÇÃO TOAST
+        function showToast(message, type) {
+            const container = document.getElementById('toast-container');
+            const toast = document.createElement('div');
+            const bgColor = type === 'success' ? 'bg-emerald-600' : 'bg-rose-600';
+            toast.className = `${bgColor} text-white px-8 py-4 rounded-2xl shadow-2xl font-bold text-sm flex items-center gap-3 fade-in transition-all duration-500`;
+            toast.innerHTML = `<span>${type === 'success' ? '✓' : '✕'}</span> ${message}`;
+            container.appendChild(toast);
+            setTimeout(() => {
+                toast.style.opacity = '0';
+                setTimeout(() => toast.remove(), 500);
+            }, 4000);
+        }
+    </script>
+</body>
+</html>

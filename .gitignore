@@ -1,2 +1,24 @@
+# Credenciais e Variáveis de Ambiente (CRÍTICO)
+.env
+.env.local
+.env.sample
+config.php
+credentials.json
+
+# Dependências (Não precisam subir, o comando 'npm install' as recupera)
 node_modules/
+vendor/
+lib/PHPMailer/ # Se você instalou via Composer, o vendor já cobre
+
+# Arquivos de Sistema e Cache
 .DS_Store
+Thumbs.db
+.cache/
+.vscode/
+.idea/
+
+# Logs e Backups
+*.log
+*.sql
+*.zip
+*.gz

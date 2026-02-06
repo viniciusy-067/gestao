@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Blog ERPCON | Insights</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #ffffff; }
+        .glass { background: rgba(255, 255, 255, 0.8); backdrop-filter: blur(20px); border-bottom: 1px solid #f1f5f9; }
+        .post-content p { margin-bottom: 2rem; line-height: 2; color: #334155; font-size: 1.15rem; text-align: justify; }
+        .post-content h2 { font-weight: 900; font-size: 2.25rem; margin-top: 3.5rem; margin-bottom: 1.5rem; letter-spacing: -0.025em; color: #0f172a; }
+        .depth-banner { box-shadow: 0 50px 100px -20px rgba(0,0,0,0.2); }
+        .related-card:hover { transform: translateY(-8px); transition: all 0.3s ease; shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        
+        /* Barra de Progresso */
+        #progress-bar { position: fixed; top: 0; left: 0; height: 4px; background: #1d4ed8; width: 0%; z-index: 200; transition: width 0.1s; }
+    </style>
+</head>
+<body class="antialiased">
+
+    <div id="progress-bar"></div>
+
+    <nav class="sticky top-0 z-[100] glass">
+        <div class="max-w-5xl mx-auto px-8 h-20 flex justify-between items-center">
+            <a href="blog.html" class="flex items-center gap-2 group text-blue-700 font-bold uppercase text-xs tracking-widest">
+                <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M15 19l-7-7 7-7" stroke-width="3"/></svg>
+                Voltar ao Blog
+            </a>
+            <img id="main-logo" src="imagens/logogestao.png" class="h-10 w-auto opacity-80" alt="ERPCON">
+        </div>
+    </nav>
+
+    <article id="post-render" class="opacity-0 transition-opacity duration-700">
+        <header class="max-w-4xl mx-auto px-8 pt-24 text-center">
+            <span id="post-category" class="text-blue-700 font-black text-xs uppercase tracking-[0.4em] mb-6 block">Categoria</span>
+            <h1 id="post-title" class="text-5xl md:text-7xl font-black text-slate-900 tracking-tighter leading-[1.1] mb-10 text-balance">Título</h1>
+            <div class="flex items-center justify-center gap-6 text-slate-400 font-bold text-xs uppercase mb-16">
+                <span id="post-date">00/00/0000</span> • <span id="post-time">0 min de leitura</span>
+            </div>
+        </header>
+
+        <div class="max-w-6xl mx-auto px-8 mb-24">
+            <img id="post-image" src="" class="w-full h-[550px] object-cover rounded-[4rem] depth-banner" alt="Banner">
+        </div>
+
+        <main class="max-w-3xl mx-auto px-8 pb-20">
+            <div id="post-body" class="post-content"></div>
+        </main>
+
+        <footer class="bg-slate-50 py-24 border-t border-slate-100">
+            <div class="max-w-5xl mx-auto px-8">
+                <h4 class="text-2xl font-black mb-12 tracking-tight">Leia também</h4>
+                <div id="relacionados-grid" class="grid grid-cols-1 md:grid-cols-2 gap-8"></div>
+            </div>
+        </footer>
+    </article>
+
+    <script src="assets/js/posts.js"></script>
+    <script>
+        // Barra de progresso de leitura
+        window.onscroll = function() {
+            let winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            let height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            let scrolled = (winScroll / height) * 100;
+            document.getElementById("progress-bar").style.width = scrolled + "%";
+        };
+
+        function carregarPost() {
+            const params = new URLSearchParams(window.location.search);
+            const id = params.get('id');
+            const post = banco_posts.find(p => p.id === id);
+
+            if (post) {
+                document.getElementById('page-title').innerText = post.titulo;
+                document.getElementById('post-category').innerText = post.categoria;
+                document.getElementById('post-title').innerText = post.titulo;
+                document.getElementById('post-date').innerText = post.data;
+                document.getElementById('post-time').innerText = post.leitura;
+                document.getElementById('post-image').src = post.imagem;
+                document.getElementById('post-body').innerHTML = post.conteudo_completo;
+                
+                gerarRelacionados(id);
+                document.getElementById('post-render').classList.remove('opacity-0');
+            } else {
+                window.location.href = 'blog.html';
+            }
+        }
+
+        function gerarRelacionados(atualId) {
+            const grid = document.getElementById('relacionados-grid');
+            const filtrados = banco_posts.filter(p => p.id !== atualId).slice(0, 2);
+
+            filtrados.forEach(p => {
+                grid.innerHTML += `
+                    <a href="post-interna.html?id=${p.id}" class="related-card bg-white p-6 rounded-[2.5rem] border border-slate-200 shadow-sm flex flex-col gap-4 transition-all duration-300">
+                        <img src="${p.imagem}" class="h-48 w-full object-cover rounded-3xl">
+                        <h5 class="font-black text-lg leading-tight text-slate-900">${p.titulo}</h5>
+                        <span class="text-blue-700 font-bold text-[10px] uppercase tracking-widest italic">Ler agora →</span>
+                    </a>
+                `;
+            });
+        }
+
+        window.addEventListener('DOMContentLoaded', carregarPost);
+    </script>
+</body>
+</html>
