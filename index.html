@@ -17,41 +17,47 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .hero-gradient { background: radial-gradient(circle at top right, #f8fafc, #eff6ff); }
+        /* Animação suave para o menu mobile */
+        .menu-animate { transition: all 0.3s ease-in-out; }
     </style>
 </head>
 
 <body class="bg-slate-50 text-slate-900 antialiased">
 
     <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
-        <div class="max-w-7xl mx-auto px-8 h-20 flex justify-between items-center">
-            <div class="text-2xl font-black text-blue-600 tracking-tighter">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black text-blue-600 tracking-tighter">
                 ERP
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-5 xl:space-x-8 font-semibold text-[13px] xl:text-sm">
+                <a href="suporte.html" class="text-slate-600 hover:text-blue-600 transition">Suporte</a>
+                <a href="perguntas.html" class="text-slate-600 hover:text-blue-600 transition">FAQ</a>
+                <a href="universidade.html" class="text-slate-600 hover:text-blue-600 transition">Universidade</a>
+                <a href="catalogo.html" class="text-slate-600 hover:text-blue-600 transition">Catálogo</a>
+                <a href="blog.html" class="text-slate-600 hover:text-blue-600 transition">Blog</a>
+                <a href="planos.html" class="text-slate-600 hover:text-blue-600 transition">Planos</a>
+                <a href="sobre.html" class="text-slate-600 hover:text-blue-600 transition">Sobre</a>
+                <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-5 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100">
+                    Login
+                </a>
             </div>
 
-            <div class="hidden md:flex items-center space-x-8 font-semibold text-sm">
-    <a href="suporte.html" class="text-slate-600 hover:text-blue-600 transition">Suporte</a>
-    <a href="perguntas.html" class="text-slate-600 hover:text-blue-600 transition">Perguntas & Respostas</a>
-    <a href="universidade.html" class="text-slate-600 hover:text-blue-600 transition">ERP Universidade</a>
-    <a href="catalogo.html" class="text-slate-600 hover:text-blue-600 transition">Catálogo</a>
-    <a href="blog.html" class="text-slate-600 hover:text-blue-600 transition">Blog</a>
-    <a href="planos.html" class="text-slate-600 hover:text-blue-600 transition">Planos</a>
-    <a href="sobre.html" class="text-slate-600 hover:text-blue-600 transition">Sobre</a>
-    <a href="https://chat.erpcon.com.br/login" class="bg-blue-600 text-white px-6 py-2.5 rounded-xl hover:bg-blue-700 transition shadow-lg shadow-blue-100">
-        Login
-    </a>
-</div>
-
-            <button id="menuBtn" class="md:hidden text-blue-600 p-2 focus:outline-none">
-                <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            <button id="menuBtn" class="lg:hidden text-blue-600 p-2 focus:outline-none">
+                <svg id="menuIcon" class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
+                </svg>
             </button>
         </div>
 
-        <div id="menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 flex-col p-8 space-y-4 shadow-xl md:hidden font-bold text-center">
-            <a href="manual.html" class="hover:text-blue-600">Manual</a>
-            <a href="index02.html" class="hover:text-blue-600">Blog</a>
-            <a href="planos.html" class="hover:text-blue-600">Planos</a>
-            <a href="sobre.html" class="hover:text-blue-600">Sobre</a>
-            <a href="https://chat.erpcon.com.br/login" class="text-blue-600 pt-4 border-t border-slate-100">Área de Login</a>
+        <div id="menu" class="hidden absolute top-20 left-0 w-full bg-white border-b border-slate-200 flex-col p-6 space-y-2 shadow-2xl lg:hidden font-bold text-center">
+            <a href="suporte.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">Suporte</a>
+            <a href="perguntas.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">Perguntas & Respostas</a>
+            <a href="universidade.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">ERP Universidade</a>
+            <a href="blog.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">Blog</a>
+            <a href="planos.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">Planos</a>
+            <a href="sobre.html" class="py-3 text-slate-700 hover:bg-blue-50 rounded-xl">Sobre</a>
+            <a href="https://chat.erpcon.com.br/login" class="mt-4 bg-blue-600 text-white py-4 rounded-xl shadow-lg">Entrar no Sistema</a>
         </div>
     </nav>
 
@@ -108,14 +114,33 @@
     </a>
 
     <script>
+        // Registrar Service Worker para PWA
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('sw.js');
         }
 
+        // Lógica do Menu Mobile
         const menuBtn = document.getElementById('menuBtn');
         const menu = document.getElementById('menu');
+        
         menuBtn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
+            const isHidden = menu.classList.contains('hidden');
+            if (isHidden) {
+                menu.classList.remove('hidden');
+                menu.classList.add('flex');
+            } else {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            }
+        });
+
+        // Fechar menu ao clicar em qualquer link mobile
+        const menuLinks = menu.querySelectorAll('a');
+        menuLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                menu.classList.remove('flex');
+            });
         });
     </script>
 </body>
