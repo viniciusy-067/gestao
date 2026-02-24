@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Versões | ERP Gestão</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        .timeline-line { position: absolute; left: 20px; top: 0; bottom: 0; width: 2px; background: #e2e8f0; }
+        .badge-pro { background: linear-gradient(90deg, #2563eb, #7c3aed); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900">
+
+    <nav class="sticky top-0 z-50 w-full bg-white/90 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-black text-blue-600 tracking-tighter">ERP</a>
+            <a href="index.html" class="text-slate-600 font-bold hover:text-blue-600 transition text-sm">Voltar ao Início</a>
+        </div>
+    </nav>
+
+    <main class="max-w-4xl mx-auto px-8 py-16">
+        <header class="mb-16">
+            <span class="text-blue-600 font-bold tracking-widest uppercase text-xs">Changelog Oficial</span>
+            <h1 class="text-4xl font-black mt-2">Notas de Atualização</h1>
+            <p class="text-slate-500 mt-4 text-lg">Acompanhe as melhorias e correções do ecossistema Ticketz PRO.</p>
+        </header>
+
+        <div class="relative space-y-12">
+            
+            <div class="relative pl-12">
+                <div class="absolute left-0 top-1 w-10 h-10 bg-blue-600 rounded-full border-4 border-white shadow-lg flex items-center justify-center z-10">
+                    <div class="w-2 h-2 bg-white rounded-full"></div>
+                </div>
+                <div class="timeline-line"></div>
+                
+                <div class="bg-white p-8 rounded-[2.5rem] border border-slate-200 shadow-sm">
+                    <div class="flex flex-wrap items-center justify-between gap-4 mb-2">
+                        <h2 class="text-2xl font-extrabold text-slate-900">Ticketz PRO v0.99.171</h2>
+                        <span class="px-4 py-1 bg-green-100 text-green-700 text-xs font-bold rounded-full uppercase">Estável</span>
+                    </div>
+                    <p class="text-slate-400 text-sm mb-6">Lançado em: 23 de Fevereiro, 2026</p>
+                    
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-purple-600 uppercase text-xs tracking-wider flex items-center">
+                                <span class="mr-2">★</span> Exclusivo Ticketz PRO
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-blue-500 font-bold">•</span>
+                                    Suporte ao recebimento de edições e exclusões via API Oficial.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-blue-500 font-bold">•</span>
+                                    Menu "Respostas Rápidas" para Instagram e Messenger.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-blue-500 font-bold">•</span>
+                                    Transcodificação de vídeo automática por serviço.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-blue-500 font-bold">•</span>
+                                    Melhoria na tela de conexão para múltiplos drivers.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-blue-500 font-bold">•</span>
+                                    Novo mapeamento interno para correções de citação e reação.
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="space-y-4">
+                            <h3 class="font-bold text-slate-800 uppercase text-xs tracking-wider flex items-center">
+                                <span class="mr-2">⚙️</span> Atualizações Gerais
+                            </h3>
+                            <ul class="space-y-3">
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-slate-400 font-bold">•</span>
+                                    Busca por mensagens rápidas (Case Insensitive).
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-slate-400 font-bold">•</span>
+                                    Atualização da libzapitu e dependências.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-slate-400 font-bold">•</span>
+                                    Removido suporte temporário ao wavoip.
+                                </li>
+                                <li class="text-sm text-slate-600 flex gap-2">
+                                    <span class="text-slate-400 font-bold">•</span>
+                                    Correção na inclusão múltipla de funis.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 p-4 bg-slate-900 rounded-2xl">
+                        <p class="text-blue-400 text-xs font-mono mb-2"># Comando para atualização rápida</p>
+                        <code class="text-white text-sm break-all font-mono">
+                            curl -sSL update.ticke.tz | sudo bash
+                        </code>
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative pl-12 opacity-60">
+                <div class="absolute left-0 top-1 w-10 h-10 bg-slate-200 rounded-full border-4 border-white flex items-center justify-center z-10"></div>
+                <div class="bg-white p-6 rounded-[2rem] border border-slate-200">
+                    <h3 class="font-bold text-slate-600">Versões anteriores</h3>
+                    <p class="text-slate-400 text-xs">Consulte o repositório para o histórico completo.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="mt-20 text-center">
+            <p class="text-slate-400 text-sm">ERPCON Consultoria - Inteligência em Dados</p>
+            <p class="text-slate-400 text-xs mt-2">© 2026</p>
+        </footer>
+    </main>
+
+</body>
+</html>
